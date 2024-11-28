@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\courseContent;
+use App\Models\professor_assing;
 use Illuminate\Http\Request;
 
-class CourseContentController extends Controller
+class ProfessorAssingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class CourseContentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(courseContent $courseContent)
+    public function show(professor_assing $professor_assing)
     {
         //
     }
@@ -42,7 +42,7 @@ class CourseContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(courseContent $courseContent)
+    public function edit(professor_assing $professor_assing)
     {
         //
     }
@@ -50,7 +50,7 @@ class CourseContentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, courseContent $courseContent)
+    public function update(Request $request, professor_assing $professor_assing)
     {
         //
     }
@@ -58,7 +58,7 @@ class CourseContentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(courseContent $courseContent)
+    public function destroy(professor_assing $professor_assing)
     {
         //
     }

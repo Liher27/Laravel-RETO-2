@@ -12,7 +12,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $role = rol::orderBy('id')->get();
+        return view('role.index',['role' => $role]);
     }
 
     /**
@@ -36,7 +37,7 @@ class RoleController extends Controller
      */
     public function show(Rol $rol)
     {
-        //
+        return view('rol.show',['rol'=>$rol]);
     }
 
     /**
