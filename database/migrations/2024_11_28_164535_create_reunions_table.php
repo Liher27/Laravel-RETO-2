@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('professor_id');
             $table->timestamp('reunion_date');
+
+            $table->unique('professor_id');
+            $table->foreign('professor_id')->references('id')->on('clients')->onDelete('cascade');
+
         });
     }
 

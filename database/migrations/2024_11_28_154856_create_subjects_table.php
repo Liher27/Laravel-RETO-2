@@ -18,6 +18,9 @@ return new class extends Migration
             $table->date('resgitration_date');
             $table->integer('subject_hours');
 
+            $table->unique('user_id');
+
+            $table->foreign('user_id')->references('id')->on('clients')->onDelete('cascade');
            
             
         });
