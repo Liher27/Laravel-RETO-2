@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('reunions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('professor_id');
+            $table->unique('professor_id');
             $table->timestamp('reunion_date');
+            $table->foreign('professor_id')->references('id')->on('clients')->onDelete('cascade');
         });
     }
 
