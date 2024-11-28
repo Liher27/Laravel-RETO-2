@@ -16,7 +16,7 @@ class Client extends Model
     return $this->belongsTo(Role::class);
    }
 
-   public function subjects(): HasMany{
-    return $this->hasMany(Subject::class);
+   public function subjects(): MorphToMany{
+    return $this->morphToMany(Subject::class);
    }
 }

@@ -11,7 +11,7 @@ class subject extends Model
         return $this->morphToMany(Course::class);
     }
 
-    public function client(): BelongsTo{
-        return $this->belongsTo(Client::class);
+    public function client(): MorphToMany{
+        return $this->morphToMany(Client::class);
        }
 }
