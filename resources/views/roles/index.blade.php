@@ -1,10 +1,9 @@
 <ul>
   {{--esto es un comentario: recorremos el listado de posts--}}
-  @foreach ($posts as $post)
+  @foreach ($roles as $role)
     {{-- visualizamos los atributos del objeto --}}
     <li>
-      <a href="{{route('posts.show',$post)}}"> {{$post->titulo}}</a>.
-      Escrito el {{$post->created_at}}
+      <a href="{{route('role.show',$role)}}"> {{$role->role_name}}</a>.
     </li>
   @endforeach
 </ul>
