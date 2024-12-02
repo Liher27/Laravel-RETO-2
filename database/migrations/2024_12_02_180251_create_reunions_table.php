@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('reunions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('profesor_id');
+            $table->unsignedBigInteger('student_id');
+            $table->date('date');
+
+            $table->unique('profesor_id','student_id');
+            $table->foreign('profesor_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

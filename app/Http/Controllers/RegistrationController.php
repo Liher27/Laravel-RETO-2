@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Historic;
+use App\Models\Registration;
 use Illuminate\Http\Request;
 
-class HistoricController extends Controller
+class RegistrationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class HistoricController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Historic $historic)
+    public function show(Registration $registration)
     {
         //
     }
@@ -42,7 +42,7 @@ class HistoricController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Historic $historic)
+    public function edit(Registration  $registration)
     {
         //
     }
@@ -50,7 +50,7 @@ class HistoricController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Historic $historic)
+    public function update(Request $request, Registration  $registration)
     {
         //
     }
@@ -58,7 +58,7 @@ class HistoricController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Historic $historic)
+    public function destroy(Registration  $registration)
     {
         //
     }
