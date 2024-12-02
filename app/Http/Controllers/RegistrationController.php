@@ -12,7 +12,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        //
+        $client = Client::orderBy('id')->get();
+        return view('client.index',['client' => $client]);
     }
 
     /**
@@ -36,7 +37,7 @@ class RegistrationController extends Controller
      */
     public function show(Registration $registration)
     {
-        //
+        return view('client.show',['client'=>$client]);
     }
 
     /**

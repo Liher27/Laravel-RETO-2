@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\user_subject;
+use App\Models\student_courses;
 use Illuminate\Http\Request;
 
-class UserSubjectController extends Controller
+class StudentCoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
