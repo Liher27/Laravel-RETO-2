@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\professor_assing;
+use App\Models\Historic;
 use Illuminate\Http\Request;
 
-class ProfessorAssingController extends Controller
+class HistoricController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $client = Client::orderBy('id')->get();
+        return view('client.index',['client' => $client]);
     }
 
     /**
@@ -34,15 +35,15 @@ class ProfessorAssingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(professor_assing $professor_assing)
+    public function show(Historic $historic)
     {
-        //
+        return view('client.show',['client'=>$client]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(professor_assing $professor_assing)
+    public function edit(Historic $historic)
     {
         //
     }
@@ -50,7 +51,7 @@ class ProfessorAssingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, professor_assing $professor_assing)
+    public function update(Request $request, Historic $historic)
     {
         //
     }
@@ -58,7 +59,7 @@ class ProfessorAssingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(professor_assing $professor_assing)
+    public function destroy(Historic $historic)
     {
         //
     }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class professor_assing extends Model
+class user_subject extends Model
 {
     //
 }

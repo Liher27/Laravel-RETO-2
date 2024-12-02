@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\subject;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -34,7 +34,7 @@ class SubjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(subject $subject)
+    public function show(Subject $subject)
     {
         //
     }
@@ -42,7 +42,7 @@ class SubjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(subject $subject)
+    public function edit(Subject $subject)
     {
         //
     }
@@ -50,7 +50,7 @@ class SubjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, subject $subject)
+    public function update(Request $request, Subject $subject)
     {
         //
     }
@@ -58,7 +58,7 @@ class SubjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(subject $subject)
+    public function destroy(Subject $subject)
     {
         //
     }

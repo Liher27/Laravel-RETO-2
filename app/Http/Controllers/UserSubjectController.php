@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\student_courses;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class StudentCoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $client = Client::orderBy('id')->get();
-        return view('client.index',['client' => $client]);
+        //
     }
 
     /**
@@ -35,15 +34,15 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show(user_subject $user_subject)
     {
-        return view('client.show',['client'=>$client]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Client $client)
+    public function edit(user_subject $user_subject)
     {
         //
     }
@@ -51,7 +50,7 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, user_subject $user_subject)
     {
         //
     }
@@ -59,7 +58,7 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $client)
+    public function destroy(user_subject $user_subject)
     {
         //
     }
