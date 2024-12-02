@@ -12,9 +12,6 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-       /* DB::table('course')->insert([
-            "course_name" => "DAM 2"
-            "subject_id" =>
-           ])*/
+        //
     }
 }

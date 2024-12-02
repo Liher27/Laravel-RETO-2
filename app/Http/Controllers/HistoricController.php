@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\courseContent;
+use App\Models\Historic;
 use Illuminate\Http\Request;
 
-class CourseContentController extends Controller
+class HistoricController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class CourseContentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(courseContent $courseContent)
+    public function show(Historic $historic)
     {
         //
     }
@@ -42,7 +42,7 @@ class CourseContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(courseContent $courseContent)
+    public function edit(Historic $historic)
     {
         //
     }
@@ -50,7 +50,7 @@ class CourseContentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, courseContent $courseContent)
+    public function update(Request $request, Historic $historic)
     {
         //
     }
@@ -58,7 +58,7 @@ class CourseContentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(courseContent $courseContent)
+    public function destroy(Historic $historic)
     {
         //
     }
