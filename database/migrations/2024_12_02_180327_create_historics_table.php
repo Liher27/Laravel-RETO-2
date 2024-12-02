@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reunions', function (Blueprint $table) {
+        Schema::create('historics', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('professor_id');
-            $table->timestamp('reunion_date');
-
-            $table->unique('professor_id');
-            $table->foreign('professor_id')->references('id')->on('clients')->onDelete('cascade');
-
+            $table->timestamps();
         });
     }
 
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reunions');
+        Schema::dropIfExists('historics');
     }
 };

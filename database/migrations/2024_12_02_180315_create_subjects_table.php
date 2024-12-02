@@ -13,16 +13,7 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->String('subject_name');
-            $table->unsignedBigInteger('user_id');
-            $table->date('resgitration_date');
-            $table->integer('subject_hours');
-
-            $table->unique('user_id');
-
-            $table->foreign('user_id')->references('id')->on('clients')->onDelete('cascade');
-           
-            
+            $table->timestamps();
         });
     }
 
