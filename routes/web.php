@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 
 Route::resources([
-    'clients' => Controller::class,
+    'clients' => UserController::class,
 ]);
 
 Route::resources([
