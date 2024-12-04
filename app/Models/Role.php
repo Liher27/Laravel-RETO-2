@@ -15,3 +15,5 @@ class Role extends Model
 
   use SoftDeletes;
 }
+
+

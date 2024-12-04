@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(){
-        $roles = Role::orderBy('role_name')->get();
-        return view('roles.index',['roles' => $roles]);
+    public function index()
+    {
+        //
     }
 
     /**
@@ -34,15 +34,15 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Role $role)
+    public function show(Reunion $reunion)
     {
-        return view('roles.show',['role'=>$role]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role)
+    public function edit(Reunion $reunion)
     {
         //
     }
@@ -50,7 +50,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Reunion $reunion)
     {
         //
     }
@@ -58,7 +58,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+    public function destroy(Reunion $reunion)
     {
         //
     }
