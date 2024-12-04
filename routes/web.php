@@ -10,9 +10,17 @@ Route::get('/', function () {
 
 
 Route::resources([
-    'clients' => UserController::class,
+    'users' => UserController::class,
 ]);
-
 Route::resources([
-    'role' => RoleController::class,
+    'registration' => RegistrationController::class,
+]);
+Route::resources([
+    'subjets' => SubjectController::class,
+]);
+Route::resources([
+    'userSubjects' => StudentCoursesController::class,
+]);
+Route::resources([
+    'roles' => RoleController::class,
 ]);
