@@ -9,9 +9,7 @@ Route::get('/', function () {
 });
 
 
-Route::resources([
-    'clients' => UserController::class,
-]);
+Route::resources(['clients' => UserController::class,]);
 
 Route::resources([
     'role' => RoleController::class,

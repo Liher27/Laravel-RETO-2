@@ -11,7 +11,7 @@ class RoleController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        $roles = Role::orderBy('role_name')->get();
+        $roles = Role::orderBy('id')->get();
         return view('roles.index',['roles' => $roles]);
     }
 
