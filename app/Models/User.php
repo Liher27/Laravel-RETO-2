@@ -6,9 +6,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
+    public function roles(): BelongsTo {
+        return $this->belongs(roles::class);
+    }
+    public function user_subjects(): BelongsToMany {
+        return $this->belongsToMany(user_subject::class);
+    }
+    public function reunions(): BelongsTo{
+        return $this->belongsTo(Reunion::class);
+    }
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
