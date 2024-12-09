@@ -18,11 +18,11 @@ Route::resources([
 ]);
 
 Route::resources([
-    'registration' => RegistrationController::class,
+    'registrations' => RegistrationController::class,
 ]);
 
 Route::resources([
-    'subjets' => SubjectController::class,
+    'subjects' => SubjectController::class,
 ]);
 
 Route::resources([

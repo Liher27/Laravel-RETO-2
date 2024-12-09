@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('direction');
             $table->string('DNI');
-            $table->integer('Telephone');
+            $table->string('Telephone');
             $table->unsignedBigInteger('role_id');
             $table->rememberToken();
             $table->timestamps();
