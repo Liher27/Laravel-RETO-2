@@ -12,7 +12,8 @@ class ReunionController extends Controller
      */
     public function index()
     {
-        //
+        $reunion = Reunion::orderBy('id')->get();
+        return view('reunion.index',['reunion' => $reunion]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ReunionController extends Controller
      */
     public function create()
     {
-        //
+        return view('reunion.create');
     }
 
     /**
@@ -28,7 +29,12 @@ class ReunionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reunion = new Reunion();
+        $reunion->profesor_id = $request->profesor_id;
+        $reunion->student_id = $request->student_id;
+        $reunion->date = $request->date;
+        $reunion->save();
+        return redirect()->route('reunion.index');
     }
 
     /**
@@ -36,7 +42,7 @@ class ReunionController extends Controller
      */
     public function show(Reunion $reunion)
     {
-        //
+        return view('reunion.show',['reunion'=>$reunion]);
     }
 
     /**

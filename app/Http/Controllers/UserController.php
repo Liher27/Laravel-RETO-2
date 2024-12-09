@@ -12,7 +12,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::orderBy('id')->get();
+        return view('user.index',['user' => $user]);
     }
 
     /**
@@ -20,7 +21,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -28,21 +29,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->email_verified_at = $request->email_verified_at;
+        $user->password = $request->password;
+        $user->direction = $request->direction;
+        $user->DNI = $request->DNI;
+        $user->Telephone = $request->Telephone;
+        $user->role_id = $request->role_id;
+        $user->save();
+        return redirect()->route('user.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Reunion $reunion)
+    public function show(User $user)
     {
-        //
+        return view('user.show',['user'=>$user]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reunion $reunion)
+    public function edit(User $user)
     {
         //
     }

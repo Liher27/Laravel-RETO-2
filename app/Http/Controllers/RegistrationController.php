@@ -12,8 +12,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $client = Client::orderBy('id')->get();
-        return view('client.index',['client' => $client]);
+        $registration = Registration::orderBy('id')->get();
+        return view('registration.index',['registration' => $registration]);
     }
 
     /**
@@ -21,7 +21,7 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        //
+        return view('registration.create');
     }
 
     /**
@@ -29,7 +29,12 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registration = new Registration();
+        $registration->course_id = $request->course_id;
+        $registration->user_id = $request->user_id;
+        $registration->registration_date = $request->reregistration_date;
+        $registration->save();
+        return redirect()->route('client.index');
     }
 
     /**
@@ -37,7 +42,7 @@ class RegistrationController extends Controller
      */
     public function show(Registration $registration)
     {
-        return view('client.show',['client'=>$client]);
+        return view('registration.show',['registration'=>$registration]);
     }
 
     /**

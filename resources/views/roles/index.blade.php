@@ -3,7 +3,7 @@
   @foreach ($roles as $role)
     {{-- visualizamos los atributos del objeto --}}
     <li>
-      <a href="{{route('role.show',$role)}}"> {{$role->role_name}}</a>.
+      <a href="{{route('roles.show',$role)}}"> {{$role->role_name}}</a>.
     </li>
   @endforeach
 </ul>
