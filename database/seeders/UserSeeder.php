@@ -20,9 +20,10 @@ class UserSeeder extends Seeder
             "password"=>"1234",
             "direction"=>"1234",
             "DNI"=>"1234",
-	    "Telephone"=>"123456789",
+            "Telephone"=>"123456789",
             "role_id"=>"1"
-         ]);
+        ]);
+
         DB::table('users')->insert([
             "name"=>"Luis",
             "email"=>"luis@gmail.com",
@@ -32,6 +33,6 @@ class UserSeeder extends Seeder
             "DNI"=>"12341234A",
             "Telephone"=>"123456789",
             "role_id"=>"2"
-        ]);
+        ]); 
     }
 }

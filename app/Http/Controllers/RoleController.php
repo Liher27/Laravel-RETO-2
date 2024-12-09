@@ -20,7 +20,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('role.create');
     }
 
     /**
@@ -28,7 +28,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role = new Role();
+        $role->role_name = $request->role_name;
+        $role->save();
+        return redirect()->route('role.index');
     }
 
     /**

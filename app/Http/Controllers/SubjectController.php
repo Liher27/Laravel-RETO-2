@@ -12,7 +12,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subject = Subject::orderBy('id')->get();
+        return view('subject.index',['subject' => $subject]);
     }
 
     /**
@@ -20,7 +21,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('subject.create');
     }
 
     /**
@@ -28,7 +29,12 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject = new Subject();
+        $subject->course_id = $request->course_id;
+        $subject->subject_name = $request->subject_name;
+        $subject->subject_hours = $request->subject_hours;
+        $subject->save();
+        return redirect()->route('subject.index');
     }
 
     /**
@@ -36,7 +42,7 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        //
+        return view('subject.show',['subject'=>$subject]);
     }
 
     /**
