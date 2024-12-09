@@ -13,5 +13,5 @@ class Subject extends Model
     public function user_subjects(): BelongsToMany {
         return $this->belongsToMany(user_subjects::class);
     }
-    use SoftDeletes;
+
 }

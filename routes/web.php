@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SubjectController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,9 +11,13 @@ Route::get('/', function () {
 
 
 Route::resources([
-    'clients' => UserController::class,
+    'users' => UserController::class,
 ]);
 
 Route::resources([
-    'role' => RoleController::class,
+    'roles' => RoleController::class,
+]);
+
+Route::resources([
+    'subjects' => SubjectController::class
 ]);
