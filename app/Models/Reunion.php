@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class student_courses extends Model
+class Reunion extends Model
 {
+
     use SoftDeletes;
+    public function users(): HasMany {
+        return $this->hasMany(User::class);
+    }
 }
