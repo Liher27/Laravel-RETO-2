@@ -19,8 +19,10 @@ class Subject extends Model
         return $this->belongsToMany(user_subjects::class);
     }
 
+
     protected static function newFactory()
     {
         return SubjectFactory::new();
     }
+
 }
