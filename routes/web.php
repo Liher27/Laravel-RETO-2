@@ -8,6 +8,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserSubjectController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('/auth/login');
@@ -37,4 +38,14 @@ Route::resources([
 
 ]);
 
-Route::post('login', 'LoginController@index')->name('login.index');
+//Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+
+Route::get('/professor', [App\Http\Controllers\HomeController::class, 'professor'])->name('professor');
+
+Route::get('/god', [App\Http\Controllers\HomeController::class, 'god'])->name('god');

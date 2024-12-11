@@ -34,6 +34,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'direction',
+        'telephone',
+        'DNI',
+        'role_id',
+        
     ];
 
     /**
@@ -58,4 +63,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getRoleID()
+{
+    return $this->role_id;
+}
 }
