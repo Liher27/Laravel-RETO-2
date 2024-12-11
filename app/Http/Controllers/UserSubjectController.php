@@ -51,7 +51,7 @@ class UserSubjectController extends Controller
      */
     public function edit(user_subject $user_subject)
     {
-        //
+        return view('user_subjects.edit',['user_subject'=>$user_subject]);
     }
 
     /**
@@ -59,7 +59,12 @@ class UserSubjectController extends Controller
      */
     public function update(Request $request, user_subject $user_subject)
     {
-        //
+        $user_subject->profesor_id = $request->profesor_id;
+        $user_subject->subject_id = $request->subject_id;
+        $user_subject->day = $request->day;
+        $user_subject->hour = $request->hour;
+        $user_subject->save();
+        return view('user_subjects.show',['user_subject'=>$user_subject]); 
     }
 
     /**
@@ -67,6 +72,7 @@ class UserSubjectController extends Controller
      */
     public function destroy(user_subject $user_subject)
     {
-        //
+        $user_subject->delete();
+        return redirect()->route('user_subjects.index');
     }
 }

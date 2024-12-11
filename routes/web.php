@@ -14,8 +14,6 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
-Route::resources(['clients' => UserController::class,]);
-
 Route::resources([
     'users' => UserController::class,
 ]);
@@ -33,7 +31,6 @@ Route::resources([
     'registrations' => RegistrationController::class,
 
 ]);
-
 Route::resources([
     'subjects' => SubjectController::class,
 ]);

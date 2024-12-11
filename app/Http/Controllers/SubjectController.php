@@ -55,7 +55,7 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('subjects.edit',['subject'=>$subject]);
     }
 
     /**
@@ -63,7 +63,11 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $subject->course_id = $request->course_id;
+        $subject->subject_name = $request->subject_name;
+        $subject->subject_hours = $request->subject_hours;
+        $subject->save();
+        return view('subjects.show',['subject'=>$subject]); 
     }
 
     /**
@@ -71,6 +75,7 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+        return redirect()->route('subjects.index');
     }
 }
