@@ -11,8 +11,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resources(['clients' => UserController::class,]);
-
 Route::resources([
     'users' => UserController::class,
 ]);
@@ -20,7 +18,6 @@ Route::resources([
 Route::resources([
     'registrations' => RegistrationController::class,
 ]);
-
 Route::resources([
     'subjects' => SubjectController::class,
 ]);
@@ -32,3 +29,7 @@ Route::resources([
 Route::resources([
     'roles' => RoleController::class,
 ]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

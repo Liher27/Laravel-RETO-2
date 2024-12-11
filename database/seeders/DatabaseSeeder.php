@@ -17,17 +17,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
     //    User::factory(10)->create();
-       Course::factory(10)->create();
-       Subject::factory(10)->create();
+    //    Course::factory(10)->create();
+    //    Subject::factory(10)->create();
 
-        //  $this->call([
-        //      CourseSeeder::class,
-        //      RoleSeeder::class,
-        //      UserSeeder::class,
-        //      ReunionSeeder::class,
-        //      RegistrationSeeder::class,
-        //      SubjectSeeder::class,
-        //      UserSubjectSeeder::class
-        //  ]);
+         $this->call([
+             CourseSeeder::class,
+             RoleSeeder::class,
+             UserSeeder::class,
+             ReunionSeeder::class,
+             RegistrationSeeder::class,
+             SubjectSeeder::class,
+             UserSubjectSeeder::class
+         ]);
     }
 }
