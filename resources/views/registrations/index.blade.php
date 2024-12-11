@@ -1,9 +1,9 @@
 <ul>
   {{--esto es un comentario: recorremos el listado de posts--}}
-  @foreach ($roles as $role)
+  @foreach ($registrations as $registration)
     {{-- visualizamos los atributos del objeto --}}
     <li>
-      <a href="{{route('roles.show',$role)}}"> {{$role->role_name}}</a>.
+      <a href="{{route('registrations.show',$registration)}}"> {{$registration->id}}</a>.
     </li>
   @endforeach
 </ul>

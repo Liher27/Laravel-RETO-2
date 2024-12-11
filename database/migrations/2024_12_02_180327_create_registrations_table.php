@@ -12,17 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('registrations', function (Blueprint $table) {
-            $table->primary(['course_id', 'user_id']);
-            $table->unsignedBigInteger('course_id');
+            $table->primary(['id', 'user_id']);
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('user_id');
             $table->date('registration_date');
             $table->integer('school_year');
+            $table->softDeletes('deleted_at', precision: 0);
 
-            $table->unique('user_id','course_id');
+            $table->unique('user_id','id');
 
-
-
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('profesor_id');
             $table->unsignedBigInteger('student_id');
             $table->date('date');
+            $table->softDeletes('deleted_at', precision: 0);
 
             $table->unique('profesor_id','student_id');
             $table->foreign('profesor_id')->references('id')->on('users')->onDelete('cascade');
