@@ -11,19 +11,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resources(['clients' => UserController::class,]);
 
 Route::resources([
     'users' => UserController::class,
 ]);
+
 Route::resources([
-    'registration' => RegistrationController::class,
+    'registrations' => RegistrationController::class,
 ]);
+
 Route::resources([
-    'subjets' => SubjectController::class,
+    'subjects' => SubjectController::class,
 ]);
+
 Route::resources([
     'userSubjects' => UserSubjectController::class,
 ]);
+
 Route::resources([
     'roles' => RoleController::class,
 ]);

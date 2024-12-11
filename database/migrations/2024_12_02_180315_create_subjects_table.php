@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('course_id');
             $table->string('subject_name');
             $table->integer('subject_hours');
+            $table->softDeletes('deleted_at', precision: 0);
             
 
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
