@@ -14,31 +14,41 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
+Route::resources(['clients' => UserController::class,]);
 
 Route::resources([
     'users' => UserController::class,
 ]);
+
 Route::resources([
+
 
     'roles' => RoleController::class,
 ]);
 
 Route::resources([
 
-    'registration' => RegistrationController::class,
+    
+
+    'registrations' => RegistrationController::class,
+
 ]);
+
 Route::resources([
     'subjects' => SubjectController::class,
 ]);
+
 Route::resources([
     'userSubjects' => UserSubjectController::class,
 ]);
+
 Route::resources([
     'roles' => RoleController::class,
 
+
 ]);
 
-//Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@index']);
+
 
 Auth::routes();
 
@@ -49,3 +59,5 @@ Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->nam
 Route::get('/professor', [App\Http\Controllers\HomeController::class, 'professor'])->name('professor');
 
 Route::get('/god', [App\Http\Controllers\HomeController::class, 'god'])->name('god');
+
+

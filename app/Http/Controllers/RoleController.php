@@ -11,7 +11,7 @@ class RoleController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        $roles = Role::orderBy('role_name')->get();
+        $roles = Role::orderBy('id')->get();
         return view('roles.index',['roles' => $roles]);
     }
 
@@ -20,7 +20,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('role.create');
+        return view('roles.create');
     }
 
     /**
@@ -31,7 +31,7 @@ class RoleController extends Controller
         $role = new Role();
         $role->role_name = $request->role_name;
         $role->save();
-        return redirect()->route('role.index');
+        return redirect()->route('roles.index');
     }
 
     /**

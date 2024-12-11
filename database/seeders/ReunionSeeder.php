@@ -14,8 +14,8 @@ class ReunionSeeder extends Seeder
     public function run(): void
     {
         DB::table('reunions')->insert([
-            "profesor_id"=>"2",
-            "student_id"=>"3",
+            "profesor_id"=>"1",
+            "student_id"=>"2",
             "date"=>"2023-01-01",  
         ]);  
     }   

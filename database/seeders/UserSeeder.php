@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
+         DB::table('users')->insert([
             "name"=>"Jose",
             "email"=>"jose@gmail.com",
             "email_verified_at"=>"2013-03-15",
@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             "Telephone"=>"123456789",
             "role_id"=>"1"
         ]);
+
         DB::table('users')->insert([
             "name"=>"Luis",
             "email"=>"luis@gmail.com",
