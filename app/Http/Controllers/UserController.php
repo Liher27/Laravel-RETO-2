@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit',['user'=>$user]);
     }
 
     /**
@@ -63,7 +63,17 @@ class UserController extends Controller
      */
     public function update(Request $request, Reunion $reunion)
     {
-        //
+        $reunion->name = $request->name;
+        $reunion->email = $request->email;
+        $reunion->email_verified_at = $request->email_verified_at;
+        $reunion->password = $request->password;
+        $reunion->direction = $request->direction;
+        $reunion->DNI = $request->DNI;
+        $reunion->Telephone = $request->Telephones;
+        $reunion->role_id = $request->role_id;
+        $reunion->save();
+        
+        return view('reunions.show',['reunion'=>$reunion]); 
     }
 
     /**
@@ -71,6 +81,7 @@ class UserController extends Controller
      */
     public function destroy(Reunion $reunion)
     {
-        //
+        $reunion->delete();
+        return redirect()->route('reunions.index');
     }
 }

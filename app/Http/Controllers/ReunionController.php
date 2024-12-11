@@ -50,7 +50,7 @@ class ReunionController extends Controller
      */
     public function edit(Reunion $reunion)
     {
-        //
+        return view('reunions.edit',['reunion'=>$reunion]);
     }
 
     /**
@@ -58,7 +58,11 @@ class ReunionController extends Controller
      */
     public function update(Request $request, Reunion $reunion)
     {
-        //
+        $reunion->profesor_id = $request->profesor_id;
+        $reunion->student_id = $request->student_id;
+        $reunion->date = $request->date;
+        $reunion->save();
+        return view('reunions.show',['reunion'=>$reunion]);  
     }
 
     /**
@@ -66,6 +70,7 @@ class ReunionController extends Controller
      */
     public function destroy(Reunion $reunion)
     {
-        //
+        $reunion->delete();
+        return redirect()->route('reunions.index');
     }
 }
