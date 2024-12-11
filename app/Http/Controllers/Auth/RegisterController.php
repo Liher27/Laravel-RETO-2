@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,29 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    public function redirectTo(){
+
+
+        $user = Auth::user();
+        $role_id = $user->getRoleID();
+        switch ($role_id) {
+            case 4:
+                return '/home';
+                break;
+            case 3:
+                return '/professor';
+                break;
+            case 2:
+                return '/admin';
+                break; 
+            case 1:
+                return '/god';
+                break;
+            default:
+                return '/home'; 
+                break;
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -51,6 +74,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'direction'=>['required','string','max:255'],
+            'DNI'=>['required','string','max:8'],
+            'telephone'=>['required','integer'],
+            'role_id'=>['required','integer'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -66,6 +93,10 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'direction'=>$data['direction'],
+            'telephone'=>$data['telephone'],
+            'DNI'=>$data['DNI'],
+            'role_id'=>$data['role_id'],
             'password' => Hash::make($data['password']),
         ]);
     }
