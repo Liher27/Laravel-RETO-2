@@ -12,8 +12,13 @@ class SubjectController extends Controller
      */
     public function index()
     {
+
+        $subjects = Subject::orderBy('course_id')->get();
+        return view('subjects.index',['subjects'=>$subjects]);
+
         $subject = Subject::orderBy('id')->get();
         return view('subject.index',['subject' => $subject]);
+
     }
 
     /**
@@ -42,7 +47,7 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        return view('subject.show',['subject'=>$subject]);
+        return view('subjects.show',['subject'=>$subject]);
     }
 
     /**
