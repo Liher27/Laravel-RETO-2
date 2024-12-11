@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\student_courses;
+use App\Models\user_subject;
 use Illuminate\Http\Request;
 
 class UserSubjectController extends Controller
@@ -12,8 +12,8 @@ class UserSubjectController extends Controller
      */
     public function index()
     {
-        $user_subject = User_subject::orderBy('id')->get();
-        return view('user_subject.index',['user_subject' => $user_subject]);
+        $user_subject = user_subject::orderBy('id')->get();
+        return view('user_subject.index',['user_subjects' => $user_subject]);
     }
 
     /**

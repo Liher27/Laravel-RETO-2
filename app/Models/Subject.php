@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Database\factories\SubjectFactory;
+use Database\Factories\SubjectFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Subject extends Model
 {
+    use HasFactory;
+
     use SoftDeletes;
 
     public function courses(): BelongsToMany {
