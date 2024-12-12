@@ -16,9 +16,9 @@ class UserSubjectSeeder extends Seeder
     {
         DB::table('user_subjects')->insert([
             "profesor_id"=>"2",
-            "subject_id"=>"1",
-            "day"=>"0",
-            "hour"=>"3"
+            "subject_id"=>"3",
+            "day"=>"1",
+            "hour"=>"2"
         ]); 
     }
 }
