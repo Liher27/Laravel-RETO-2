@@ -10,6 +10,9 @@ class SubjectSeeder extends Seeder
 {
 
 
+    use hasFactory;
+
+
     /**
      * Run the database seeds.
      */
