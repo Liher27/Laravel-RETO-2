@@ -24,22 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-            return view('home');
-    }
-    public function admin(){
-
-        return view('admin');
-
-    }
-    public function professor(){
-
-        return view('professor');
-
-    }
-    public function god(){
-        
-        return view('god');
-
+        $user = Auth::user();
+        $role_id = $user->getRoleID();
+ 
+    
+        if($role_id == 1 || $role_id == 2)
+            return view('admin.show',['user'=>$user]);
+        else
+            return view('home',['user'=>$user]);
     }
 
+    public function god()
+    {
+        return "IiI";
+    }
 }

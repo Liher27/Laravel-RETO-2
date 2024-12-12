@@ -30,27 +30,15 @@ class RegisterController extends Controller
      * @var string
      */
     public function redirectTo(){
-
-
         $user = Auth::user();
         $role_id = $user->getRoleID();
-        switch ($role_id) {
-            case 4:
-                return '/home';
-                break;
-            case 3:
-                return '/professor';
-                break;
-            case 2:
-                return '/admin';
-                break; 
-            case 1:
-                return '/god';
-                break;
-            default:
-                return '/home'; 
-                break;
-        }
+
+         if($role_id == 1 || $role_id == 2){
+            return redirect()->action([AdminController::class, 'show'], ['user' => $user]);
+          }
+          else{
+            return redirect()->action([AdminController::class, 'show'], ['user' => $user]);
+          }
     }
 
     /**
@@ -75,7 +63,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'direction'=>['required','string','max:255'],
-            'DNI'=>['required','string','max:8'],
+            'DNI'=>['required','string','max:9'],
             'telephone'=>['required','integer'],
             'role_id'=>['required','integer'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],

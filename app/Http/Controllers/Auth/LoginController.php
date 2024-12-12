@@ -33,23 +33,10 @@ class LoginController extends Controller
         $role_id = $user->getRoleID();
  
     
-        switch ($role_id) {
-            case 4:
-                return '/home';
-                break;
-            case 3:
-                return '/professor';
-                break;
-            case 2:
-                return '/admin';
-                break; 
-            case 1:
-                return '/god';
-                break;
-            default:
-                return '/home'; 
-                break;
-        }
+        if($role_id == 1 || $role_id == 2)
+            return view('admin.show',['user'=>$user]);
+        else
+            return view('home',['user'=>$user]);
     }
 
     /**
