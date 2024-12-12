@@ -1,9 +1,38 @@
-<ul>
-  {{--esto es un comentario: recorremos el listado de posts--}}
-  @foreach ($roles as $role)
-    {{-- visualizamos los atributos del objeto --}}
-    <li>
-      <a href="{{route('roles.show',$role)}}"> {{$role->role_name}}</a>.
-    </li>
-  @endforeach
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roles</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+      
+<div class="container">
+    <div class="card mt-5">
+        <h3 class="card-header p-3">Roles</h3>
+        <div class="card-body">
+            <table class="table table-bordered data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Rol name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($roles as $roles)
+                        <tr>
+                            <td>{{ $roles->id }}</td>
+                            <td>{{ $roles->role_name }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3">There are no roles.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body> 
+</html>

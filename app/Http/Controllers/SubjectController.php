@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class SubjectController extends Controller
 {
     /**
@@ -13,9 +13,11 @@ class SubjectController extends Controller
     public function index()
     {
 
+        $subjects = Subject::orderBy('course_id')->get();
+        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
 
         $subject = Subject::orderBy('id')->get();
-        return view('subjects.index',['subjects' => $subject]);
+        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
 
     }
 
