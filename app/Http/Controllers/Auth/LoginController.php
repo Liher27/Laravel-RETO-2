@@ -28,10 +28,8 @@ class LoginController extends Controller
      */
     public function redirectTo(){
 
-
         $user = Auth::user();
         $role_id = $user->getRoleID();
- 
     
         switch ($role_id) {
             case 4:

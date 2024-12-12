@@ -50,7 +50,7 @@ class RegistrationController extends Controller
      */
     public function edit(Registration  $registration)
     {
-        //
+        return view('registrations.edit',['registration'=>$registration]);
     }
 
     /**
@@ -58,7 +58,11 @@ class RegistrationController extends Controller
      */
     public function update(Request $request, Registration  $registration)
     {
-        //
+        $registration->course_id = $request->course_id;
+        $registration->user_id = $request->user_id;
+        $registration->registration_date = $request->registration_date;
+        $registration->save();
+        return view('registrations.show',['registration'=>$registration]);  
     }
 
     /**
@@ -66,6 +70,7 @@ class RegistrationController extends Controller
      */
     public function destroy(Registration  $registration)
     {
-        //
+        $registration->delete();
+        return redirect()->route('registrations.index');
     }
 }

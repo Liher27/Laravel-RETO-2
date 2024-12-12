@@ -47,7 +47,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('roles.edit',['role'=>$role]);
     }
 
     /**
@@ -55,7 +55,9 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $role->role_name = $request->role_name;
+        $role->save();
+        return view('roles.show',['role'=>$role]);  
     }
 
     /**
@@ -63,6 +65,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return redirect()->route('roles.index');
     }
 }
