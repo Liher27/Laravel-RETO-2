@@ -49,10 +49,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                           
                         @else
-
-                      
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a>
                                 </li>
