@@ -30,15 +30,27 @@ class RegisterController extends Controller
      * @var string
      */
     public function redirectTo(){
+
+
         $user = Auth::user();
         $role_id = $user->getRoleID();
-
-         if($role_id == 1 || $role_id == 2){
-            return redirect()->action([AdminController::class, 'show'], ['user' => $user]);
-          }
-          else{
-            return redirect()->action([AdminController::class, 'show'], ['user' => $user]);
-          }
+        switch ($role_id) {
+            case 4:
+                return '/home';
+                break;
+            case 3:
+                return '/professor';
+                break;
+            case 2:
+                return '/admin';
+                break; 
+            case 1:
+                return '/god';
+                break;
+            default:
+                return '/home'; 
+                break;
+        }
     }
 
     /**

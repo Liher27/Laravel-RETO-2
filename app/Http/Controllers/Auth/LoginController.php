@@ -1,44 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class HomeController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    public function redirectTo(){
-
-
-        $user = Auth::user();
-        $role_id = $user->getRoleID();
- 
-    
-        if($role_id == 1 || $role_id == 2)
-            return view('admin.show',['user'=>$user]);
-        else
-            return view('home',['user'=>$user]);
-    }
-
     /**
      * Create a new controller instance.
      *
@@ -46,7 +14,32 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
-        $this->middleware('auth')->only('logout');
+        $this->middleware('auth');
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+            return view('home');
+    }
+    public function admin(){
+
+        return view('admin');
+
+    }
+    public function professor(){
+
+        return view('professor');
+
+    }
+    public function god(){
+        
+        return view('god');
+
+    }
+
 }
