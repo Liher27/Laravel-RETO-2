@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             
+
+            $table->primary(['id', 'user_id']);
+            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('user_id');
+            $table->date('registration_date');
+            $table->integer('school_year');
+            $table->softDeletes('deleted_at', precision: 0);
+            $table->unique('user_id','id');
+
+
+
+
+            $table->foreign('id')->references('id')->on('courses')->onDelete('cascade');
+
             $table->primary(['course_id', 'user_id']);
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('user_id');

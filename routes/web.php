@@ -20,13 +20,10 @@ Route::resources([
 
 Route::resources([
 
-
     'roles' => RoleController::class,
 ]);
 
 Route::resources([
-
-    
 
     'registrations' => RegistrationController::class,
 
