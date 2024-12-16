@@ -7,6 +7,47 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+
+    use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    public function redirectTo(){
+
+        $user = Auth::user();
+        $role_id = $user->getRoleID();
+    
+        switch ($role_id) {
+            case 4:
+                return '/home';
+                break;
+            case 3:
+                return '/professor';
+                break;
+            case 2:
+                return '/admin';
+                break; 
+            case 1:
+                return '/god';
+                break;
+            default:
+                return '/home'; 
+                break;
+        }
+    }
     /**
      * Create a new controller instance.
      *
@@ -22,24 +63,4 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-            return view('home');
-    }
-    public function admin(){
-
-        return view('admin');
-
-    }
-    public function professor(){
-
-        return view('professor');
-
-    }
-    public function god(){
-        
-        return view('god');
-
-    }
-
 }

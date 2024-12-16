@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\user_subject;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class UserSubjectController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class UserSubjectController extends Controller
     public function index()
     {
         $user_subject = user_subject::orderBy('id')->get();
-        return view('user_subject.index',['user_subjects' => $user_subject]);
+        return view('user_subject.index',['user_subjects' => DB::table('user_subjects')->paginate(5)]);
     }
 
     /**

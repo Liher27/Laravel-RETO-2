@@ -26,7 +26,10 @@ class SubjectFactory extends Factory
             'course_id'=>random_int(1,4),
             'subject_name'=>fake()->word(),
             'subject_hours'=>random_int(1,4),
+
+
             'deleted_at'=>now(),
+
         ];
     }
 

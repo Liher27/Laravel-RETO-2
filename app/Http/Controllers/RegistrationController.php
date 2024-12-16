@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Registration;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class RegistrationController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $registrations = Registration::orderBy('id')->get();
-        return view('registrations.index',['registrations' => $registrations]);
+        return view('registrations.index',['registrations' => DB::table('registrations')->paginate(15)]);
     }
 
     /**

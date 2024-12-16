@@ -22,9 +22,14 @@ Route::resources([
 ]);
 
 Route::resources([
+    'roles' => RoleController::class,
+]);
+
+Route::resources([
     'registrations' => RegistrationController::class,
 
 ]);
+
 Route::resources([
     'subjects' => SubjectController::class,
 ]);
@@ -34,5 +39,18 @@ Route::resources([
 ]);
 
 Route::resources([
-    'roles' => RoleController::class,
+    'user' => UserController::class,
 ]);
+Route::resources([
+    'professor' => HomeController::class,
+]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+
+Route::get('/professor', [App\Http\Controllers\HomeController::class, 'professor'])->name('professor');
+
+Route::get('/god', [App\Http\Controllers\HomeController::class, 'god'])->name('god');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class SubjectController extends Controller
 {
     /**
@@ -14,10 +14,10 @@ class SubjectController extends Controller
     {
 
         $subjects = Subject::orderBy('course_id')->get();
-        return view('subjects.index',['subjects'=>$subjects]);
+        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
 
         $subject = Subject::orderBy('id')->get();
-        return view('subject.index',['subject' => $subject]);
+        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
 
     }
 
@@ -26,7 +26,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        return view('subject.create');
+        return view('subjects.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class SubjectController extends Controller
         $subject->subject_name = $request->subject_name;
         $subject->subject_hours = $request->subject_hours;
         $subject->save();
-        return redirect()->route('subject.index');
+        return redirect()->route('subjects.index');
     }
 
     /**

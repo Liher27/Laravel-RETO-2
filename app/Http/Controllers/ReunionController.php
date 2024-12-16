@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reunion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReunionController extends Controller
 {
@@ -13,7 +14,7 @@ class ReunionController extends Controller
     public function index()
     {
         $reunion = Reunion::orderBy('id')->get();
-        return view('reunion.index',['reunion' => $reunion]);
+        return view('reunion.index',['reunion' => DB::table('reunion')->paginate(1)]);
     }
 
     /**
