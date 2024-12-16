@@ -1,35 +1,6 @@
-<<<<<<< Updated upstream
-
 @extends('layouts.app')
 
 @section('content')
-<ul>
-  @foreach ($user_subjects as $user_subject)
-    <li>
-      <a href="{{route('userSubjects.show',$user_subject)}}"> {{$user_subject->id}}</a>
-    </li>
-  @endforeach
-</ul>
-@endsection
-<ul>
-  {{--esto es un comentario: recorremos el listado de posts--}}
-  @foreach ($user_subjects as $user_subject)
-    {{-- visualizamos los atributos del objeto --}}
-    <li>
-      <a href="{{route('userSubjects.show',$user_subject)}}"> {{$user_subject->id}}</a>.
-    </li>
-  @endforeach
-</ul>
-
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Roles</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-      
 <div class="container">
     <div class="card mt-5">
         <h3 class="card-header p-3">Roles</h3>
@@ -63,7 +34,4 @@
         </div>
     </div>
 </div>
-
-</body> 
-</html>
->>>>>>> Stashed changes
+@endsection

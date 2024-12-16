@@ -35,8 +35,5 @@ Route::middleware(['auth'])->group(function () {
         'professor' => HomeController::class,
     ]);
 
-    Route::get('/god', [App\Http\Controllers\HomeController::class, 'god'])->name('god');
-    Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
-    Route::get('/professor', [App\Http\Controllers\HomeController::class, 'professor'])->name('professor');
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/settings')->middleware(App\Http\Controllers\HomeController::class);
 });

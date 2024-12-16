@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Closure;
 
 class HomeController extends Controller
 {
@@ -18,32 +19,29 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        if(Auth::user()->getRoleID()>3)
-            return view('home');
-    }
-    public function admin(){
-        if(Auth::user()->getRoleID() == 2)
-            return view('admin');
-        else
-            return view('home');
-    }
-    public function professor(){
-        if(Auth::user()->getRoleID() == 3)
-            return view('professor.index');
-        else
-            return view('home');
-    }
-    public function god(){
-        if(Auth::user()->getRoleID()==1)
-          return view('god');  
-        else
-            return view('home');
-    }
+    * Handle an incoming request.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \Closure  $next
+    * @return mixed
+    */
+    public function handle($request, Closure $next) {
+        if (Auth::check() && Auth::user()->role_id == 1) {
+            return response()->view('god.god');
+        }
 
+        if (Auth::check() && Auth::user()->role_id == 2) {
+            return response()->view('admin.admin');
+        }
+
+        if (Auth::check() && Auth::user()->role_id == 3) {
+            return response()->view('professor.index');
+        }
+
+        if (Auth::check() && Auth::user()->role_id >= 4) {
+            return redirect('/');
+        }
+
+        return $next($request);
+    }
 }
