@@ -19,15 +19,22 @@ Route::resources([
 ]);
 
 Route::resources([
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     'roles' => RoleController::class,
 ]);
 
 Route::resources([
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     'registrations' => RegistrationController::class,
 
 ]);
+
 Route::resources([
     'subjects' => SubjectController::class,
 ]);
@@ -37,9 +44,10 @@ Route::resources([
 ]);
 
 Route::resources([
-    'roles' => RoleController::class,
-
-
+    'user' => UserController::class,
+]);
+Route::resources([
+    'professor' => HomeController::class,
 ]);
 
 Auth::routes();

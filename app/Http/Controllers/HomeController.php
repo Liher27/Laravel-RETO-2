@@ -33,7 +33,7 @@ class HomeController extends Controller
     }
     public function professor(){
 
-        return view('professor');
+        return view('professor.index');
 
     }
     public function god(){
