@@ -24,21 +24,26 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->getRoleID()>3)
             return view('home');
     }
     public function admin(){
-
-        return view('admin');
-
+        if(Auth::user()->getRoleID() == 2)
+            return view('admin');
+        else
+            return view('home');
     }
     public function professor(){
-
-        return view('professor.index');
-
+        if(Auth::user()->getRoleID() == 3)
+            return view('professor.index');
+        else
+            return view('home');
     }
     public function god(){
-        
-        return view('god');
-
+        if(Auth::user()->getRoleID()==1)
+          return view('god');  
+        else
+            return view('home');
     }
+
 }

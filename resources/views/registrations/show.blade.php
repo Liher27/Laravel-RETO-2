@@ -1,24 +1,3 @@
-<<<<<<< Updated upstream
-@extends('layouts.app')
-
-@section('content')
-
-<ul>
-    <li>
-      id del curso: {{$registration->id}}
-    </li>
-    <li>
-        user_id: {{$registration->user_id}}
-    </li>
-    <li>
-        fecha de matriculacion: {{$registration->registration_date}}
-    </li>
-    <li>
-        curso escolar: {{$registration->school_year}}
-    </li>
-</ul>
-@endsection
-=======
 <!DOCTYPE html>
 
 <html>
@@ -46,7 +25,6 @@
     <h1>Laravel Table Inline Editing Example - ItSolutionStuff.com</h1>
     <table class="table table-bordered data-table">
         <thead>
-
             <tr>
 
                 <th>No</th>
@@ -130,4 +108,3 @@
 </script>
 
 </html>
->>>>>>> Stashed changes

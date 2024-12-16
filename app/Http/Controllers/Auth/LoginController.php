@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -27,27 +28,8 @@ class HomeController extends Controller
      */
     public function redirectTo(){
 
-        $user = Auth::user();
-        $role_id = $user->getRoleID();
-    
-        switch ($role_id) {
-            case 4:
-                return '/home';
-                break;
-            case 3:
-                return '/professor';
-                break;
-            case 2:
-                return '/admin';
-                break; 
-            case 1:
-                return '/god';
-                break;
-            default:
-                return '/home'; 
-                break;
-        }
     }
+
     /**
      * Create a new controller instance.
      *
@@ -55,12 +37,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest')->except('logout');
+        $this->middleware('auth')->only('logout');
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
 }
