@@ -63,17 +63,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-                                
-                               
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                               @if(Auth::user()->getRoleID() == 1 ||Auth::user()->getRoleID() == 2 )
-                                <a class="dropdown-item" href="{{ route('subjects.create') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('create-form').submit();">
-                                        {{ __('Crear asignatura') }}
-                                    </a>
-                                @endif
                                
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

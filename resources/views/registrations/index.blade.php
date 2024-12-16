@@ -1,25 +1,9 @@
-
-<<<<<<< Updated upstream
 @extends('layouts.app')
 @section('content')
-<ul>
-  @foreach ($registrations as $registration)
-    <li>
-      <a href="{{route('registrations.show',$registration)}}"> {{$registration->id}}</a>.
-    </li>
-  @endforeach
-</ul>
-@endsection
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>matriculas</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-      
 <div class="container">
+    @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+    <a href="{{ route('registrations.create') }}" class="btn btn-sm btn-primary">Crear Matriculas</a>
+    @endif
     <div class="card mt-5">
         <h3 class="card-header p-3">Matriculas</h3>
         <div class="card-body">
@@ -30,27 +14,35 @@
                         <th>user id</th>
                         <th>Dia de registro</th>
                         <th>Dia escolar</th>
+                        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
+                        <th>Acciones</th> 
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($registrations as $registrations)
+                    @foreach($registrations as $registration)
                         <tr>
-                            <td>{{ $registrations->id }}</td>
-                            <td>{{ $registrations->user_id }}</td>
-                            <td>{{ $registrations->registration_date }}</td>
-                            <td>{{ $registrations->school_year }}</td>
+                            <td>{{ $registration->id }}</td>
+                            <td>{{ $registration->user_id }}</td>
+                            <td>{{ $registration->registration_date }}</td>
+                            <td>{{ $registration->school_year }}</td>
+                            @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+                            <td>
+                                <a href="{{ route('registrations.edit', $registration) }}" class="btn btn-sm btn-primary">Editar</a>
+                                <form action="{{ route('registrations.destroy', $registration) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
+                            </td>
+                        @endif
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="3">There are no roles.</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
 </body> 
 </html>
->>>>>>> Stashed changes
+@endsection

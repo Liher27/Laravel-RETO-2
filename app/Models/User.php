@@ -17,6 +17,10 @@ class User extends Authenticatable
     public function roles(): BelongsTo {
         return $this->belongs(roles::class);
     }
+    public function registrations(): BelongsToMany {
+        return $this->belongsToMany(Registration::class);
+        }
+
     public function user_subjects(): BelongsToMany {
         return $this->belongsToMany(user_subject::class);
     }

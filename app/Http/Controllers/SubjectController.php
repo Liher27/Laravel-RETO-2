@@ -13,11 +13,8 @@ class SubjectController extends Controller
     public function index()
     {
 
-        $subjects = Subject::orderBy('course_id')->get();
-        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
-
-        $subject = Subject::orderBy('id')->get();
-        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
+            $subjects = Subject::orderBy('course_id')->paginate(15);
+            return view('subjects.index',['subjects' => $subjects]);
 
     }
 
@@ -34,11 +31,13 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
+        
         $subject = new Subject();
         $subject->course_id = $request->course_id;
         $subject->subject_name = $request->subject_name;
         $subject->subject_hours = $request->subject_hours;
         $subject->save();
+        dd($subject);
         return redirect()->route('subjects.index');
     }
 
@@ -67,7 +66,7 @@ class SubjectController extends Controller
         $subject->subject_name = $request->subject_name;
         $subject->subject_hours = $request->subject_hours;
         $subject->save();
-        return view('subjects.show',['subject'=>$subject]); 
+        return redirect()->route('subjects.index');
     }
 
     /**

@@ -13,8 +13,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::orderBy('id')->get();
-        return view('registrations.index',['registrations' => DB::table('registrations')->paginate(15)]);
+        $registrations = Registration::orderBy('id')->paginate(15);
+        return view('registrations.index',['registrations' =>$registrations ]);
     }
 
     /**
@@ -31,9 +31,10 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
         $registration = new Registration();
-        $registration->course_id = $request->course_id;
+        $registration->id = $request->course_id;
         $registration->user_id = $request->user_id;
-        $registration->registration_date = $request->reregistration_date;
+        $registration->registration_date = $request->registration_date;
+        $registration->school_year = $request->school_year;
         $registration->save();
         return redirect()->route('registrations.index');
     }
@@ -59,11 +60,12 @@ class RegistrationController extends Controller
      */
     public function update(Request $request, Registration  $registration)
     {
-        $registration->course_id = $request->course_id;
+        $registration->id = $request->course_id;
         $registration->user_id = $request->user_id;
         $registration->registration_date = $request->registration_date;
+        $registration->school_year = $request->school_year;
         $registration->save();
-        return view('registrations.show',['registration'=>$registration]);  
+        return redirect()->route('registrations.index');
     }
 
     /**

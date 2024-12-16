@@ -32,13 +32,16 @@ class HomeController extends Controller
 
     }
     public function professor(){
-
+        if(Auth::user()->getRoleID() == 3){
         return view('professor.index');
+        }
 
     }
     public function god(){
-        
-        return view('god');
+        if(Auth::user()->getRoleID() == 1){
+            return view('god');
+        }
+       
 
     }
 

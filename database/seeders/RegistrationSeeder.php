@@ -14,10 +14,10 @@ class RegistrationSeeder extends Seeder
     public function run(): void
     {
         DB::table('registrations')->insert([
-            "id"=>"1",
-            "user_id"=>"2",
+            "id"=>"2",
+            "user_id"=>"4",
             "registration_date"=>"2013-03-15",
-            "school_year"=>"2"
+            "school_year"=>"3"
         ]);
 
     }
