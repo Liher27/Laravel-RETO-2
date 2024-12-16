@@ -19,18 +19,10 @@ Route::resources([
 ]);
 
 Route::resources([
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     'roles' => RoleController::class,
 ]);
 
 Route::resources([
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     'registrations' => RegistrationController::class,
 
 ]);
