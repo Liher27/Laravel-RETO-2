@@ -7,8 +7,9 @@
     <div class="d-flex flex-row">
     <a href="{{route('subjects.show',$subject)}}"> {{$subject->subject_name}}</a>
     @if(Auth::user()->getRoleID() == 1 ||Auth::user()->getRoleID() == 2 )
-
-      <a href="{{route('subjects.edit',$subject)}}" class="btn btn-sm btn-warning">Editar</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{{route('subjects.edit',$subject)}}" class="btn btn-sm btn-primary">Editar</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <form action="{{route('subjects.destroy',$subject)}}" method="POST">
         @csrf
         @method('DELETE')
