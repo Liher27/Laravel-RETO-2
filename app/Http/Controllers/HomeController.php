@@ -27,11 +27,11 @@ class HomeController extends Controller
     */
     public function handle($request, Closure $next) {
         if (Auth::check() && Auth::user()->role_id == 1) {
-            return response()->view('god.god');
+            return response()->view('god.index');
         }
 
         if (Auth::check() && Auth::user()->role_id == 2) {
-            return response()->view('admin.admin');
+            return response()->view('admin.index');
         }
 
         if (Auth::check() && Auth::user()->role_id == 3) {

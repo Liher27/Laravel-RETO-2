@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
         'roles' => RoleController::class,
     ]);
     Route::resources([
-    'registrations' => RegistrationController::class,
+        'registrations' => RegistrationController::class,
     ]);
     Route::resources([
         'subjects' => SubjectController::class,
@@ -35,5 +35,5 @@ Route::middleware(['auth'])->group(function () {
         'professor' => HomeController::class,
     ]);
 
-    Route::get('/settings')->middleware(App\Http\Controllers\HomeController::class);
+    Route::get('/settings')->middleware(HomeController::class);
 });
