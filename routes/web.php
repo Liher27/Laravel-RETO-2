@@ -30,5 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'userSubjects' => UserSubjectController::class,
     ]);
+    Route::resources([
+        'courses' => CourseController::class,
+    ]);
     Route::get('/settings')->middleware(HomeController::class);
 });

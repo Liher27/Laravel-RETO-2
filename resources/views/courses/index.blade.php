@@ -1,35 +1,27 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
-    <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
-    @endif
     <div class="card mt-5">
-        <h3 class="card-header p-3">Asignaturas</h3>
+        <h3 class="card-header p-3">Modelos</h3>
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>
-                    <tr>
-                        <th>Subject_ID</th>
-                        <th>Course_ID</th>
-                        <th>Subject_Name</th>
-                        <th>Subject_Hour</th>
+                        <th>ID_MODELO</th>
+                        <th>MODELO_NOMBRE</th>
                         @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
                         <th>Acciones</th> 
                         @endif
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($subjects as $subject)
+                @foreach ($courses as $course)
                     <tr>
-                        <td>{{ $subject->id }}</td>
-                        <td>{{ $subject->course_id }}</td>
-                        <td>{{ $subject->subject_name }}</td>
-                        <td>{{ $subject->subject_hours }}</td>
+                        <td>{{ $course->id }}</td>
+                        <td>{{ $course->course_name }}</td>
                         @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
                             <td>
-                                <a href="{{ route('subjects.edit', $subject) }}" class="btn btn-sm btn-primary">Editar</a>
-                                <form action="{{ route('subjects.destroy', $subject) }}" method="POST" style="display:inline;">
+                                <a href="{{ route('courses.edit', $course) }}" class="btn btn-sm btn-primary">Editar</a>
+                                <form action="{{ route('courses.destroy', $course) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
