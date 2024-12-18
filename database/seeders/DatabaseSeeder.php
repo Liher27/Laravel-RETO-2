@@ -28,7 +28,18 @@ class DatabaseSeeder extends Seeder
             'role_id' => 4,
         ]);
         Course::factory(10)->create();
-        Subject::factory(10)->create();
+        Subject::factory()->count(10)->sequence(
+            ['course_id' => 1],
+            ['course_id' => 2],
+            ['course_id' => 3],
+            ['course_id' => 4],
+            ['course_id' => 5],
+            ['course_id' => 6],
+            ['course_id' => 7],
+            ['course_id' => 8],
+            ['course_id' => 9],
+            ['course_id' => 10],
+            )->create();
         user_subject::factory()->count(60)->sequence(
             ['profesor_id' => 1],
             ['profesor_id' => 2],
