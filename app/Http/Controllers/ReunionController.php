@@ -13,8 +13,8 @@ class ReunionController extends Controller
      */
     public function index()
     {
-        $reunion = Reunion::orderBy('id')->get();
-        return view('reunion.index',['reunion' => DB::table('reunion')->paginate(1)]);
+        $reunion = Reunion::orderBy('id')->paginate(15);
+        return view('reunion.index',['reunion' =>$reunion]);
     }
 
     /**

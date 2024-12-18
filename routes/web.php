@@ -9,7 +9,6 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserSubjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
-
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
