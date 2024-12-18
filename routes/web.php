@@ -31,7 +31,11 @@ Route::middleware(['auth'])->group(function () {
         'userSubjects' => UserSubjectController::class,
     ]);
     Route::resources([
+<<<<<<< HEAD
         'professor' => HomeController::class,
+=======
+        'courses' => CourseController::class,
+>>>>>>> ebd86c7dafc99119c7e0dfe1a833f536d2a4499e
     ]);
 
     Route::get('/settings')->middleware(HomeController::class);
