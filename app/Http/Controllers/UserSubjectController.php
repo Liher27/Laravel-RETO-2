@@ -12,7 +12,7 @@ class UserSubjectController extends Controller
      */
     public function index()
     {
-        $user_subject = user_subject::orderBy('id')->paginate(5);
+        $user_subject = user_subject::orderBy('id')->paginate($PAGINATION_COUNT);
         return view('user_subject.index',['user_subjects' => $user_subjects]);
     }
 
