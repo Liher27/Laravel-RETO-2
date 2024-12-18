@@ -37,7 +37,6 @@ class SubjectController extends Controller
         $subject->subject_name = $request->subject_name;
         $subject->subject_hours = $request->subject_hours;
         $subject->save();
-        dd($subject);
         return redirect()->route('subjects.index');
     }
 
