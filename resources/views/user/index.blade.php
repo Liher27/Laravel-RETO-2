@@ -6,12 +6,15 @@
         <h3 class="card-header p-3">Alumnos</h3>
         <div class="card-body">
             <table class="table table-bordered data-table">
-                
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>ROLE</th>
+                        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
+                        <th>ACCIONES</th> 
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +23,19 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{$user->role_id}}</td>
+                            @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+                            <td>
+                                @if($user->role_id != 1 )
+                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Editar</a>
+                                <form action="{{ route('users.destroy', $user) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
+                               @endif                
+                            </td>
+                        @endif
                         </tr>
                     @empty
                         <tr>

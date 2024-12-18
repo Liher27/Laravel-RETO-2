@@ -62,27 +62,27 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reunion $reunion)
+    public function update(Request $request, User $user)
     {
-        $reunion->name = $request->name;
-        $reunion->email = $request->email;
-        $reunion->email_verified_at = $request->email_verified_at;
-        $reunion->password = $request->password;
-        $reunion->direction = $request->direction;
-        $reunion->DNI = $request->DNI;
-        $reunion->Telephone = $request->Telephones;
-        $reunion->role_id = $request->role_id;
-        $reunion->save();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->email_verified_at = $request->email_verified_at;
+        $user->password = $request->password;
+        $user->direction = $request->direction;
+        $user->DNI = $request->DNI;
+        $user->Telephone = $request->Telephone;
+        $user->role_id = $request->role_id;
+        $user->save();
         
-        return view('reunions.show',['reunion'=>$reunion]); 
+        return redirect()->route('user.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reunion $reunion)
+    public function destroy(User $user)
     {
         $reunion->delete();
-        return redirect()->route('reunions.index');
+        return redirect()->route('users.index');
     }
 }

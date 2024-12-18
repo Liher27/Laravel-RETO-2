@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class User extends Authenticatable 
 {
     public function roles(): BelongsTo {
-        return $this->belongs(roles::class);
+        return $this->belongs(roles::class,'role_id');
     }
     public function registrations(): BelongsToMany {
         return $this->belongsToMany(Registration::class);

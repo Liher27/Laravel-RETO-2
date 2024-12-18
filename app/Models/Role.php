@@ -12,7 +12,7 @@ class Role extends Model
     use SoftDeletes;
 
     public function users(): HasMany {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class,'user_id');
     }
 
 }

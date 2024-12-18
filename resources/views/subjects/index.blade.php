@@ -1,21 +1,21 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
-    <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
-    @endif
     <div class="card mt-5">
         <h3 class="card-header p-3">Asignaturas</h3>
+        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+             <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
+        @endif
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>
                     <tr>
-                        <th>Subject_ID</th>
-                        <th>Course_ID</th>
-                        <th>Subject_Name</th>
-                        <th>Subject_Hour</th>
+                        <th>ID_ASIGNATURA</th>
+                        <th>ID_CICLO</th>
+                        <th>NOMBRE_ASIGNATURA</th>
+                        <th>HORAS_ASIGNATURA</th>
                         @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
-                        <th>Acciones</th> 
+                        <th>ACCIONES</th> 
                         @endif
                     </tr>
                 </thead>
