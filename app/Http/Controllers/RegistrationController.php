@@ -13,8 +13,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::orderBy('id')->get();
-        return view('registrations.index',['registrations' => DB::table('registrations')->paginate(15)]);
+        $registrations = Registration::orderBy('id')->paginate(15);
+        return view('registrations.index',['registrations' =>$registrations]);
     }
 
     /**

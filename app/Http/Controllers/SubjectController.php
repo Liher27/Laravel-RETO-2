@@ -13,11 +13,11 @@ class SubjectController extends Controller
     public function index()
     {
 
-        $subjects = Subject::orderBy('course_id')->get();
-        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
+        $subjects = Subject::orderBy('course_id')->paginate(5);
+        return view('subjects.index',['subjects' => $subjects]);
 
-        $subject = Subject::orderBy('id')->get();
-        return view('subjects.index',['subjects' => DB::table('subjects')->paginate(5)]);
+        $subject = Subject::orderBy('id')->paginate(5);
+        return view('subjects.index',['subjects' => $subjects]);
 
     }
 

@@ -1,23 +1,5 @@
-
-<<<<<<< Updated upstream
 @extends('layouts.app')
 @section('content')
-<ul>
-  @foreach ($registrations as $registration)
-    <li>
-      <a href="{{route('registrations.show',$registration)}}"> {{$registration->id}}</a>.
-    </li>
-  @endforeach
-</ul>
-@endsection
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>matriculas</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
       
 <div class="container">
     <div class="card mt-5">
@@ -53,4 +35,4 @@
 
 </body> 
 </html>
->>>>>>> Stashed changes
+@endsection
