@@ -58,6 +58,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
+                                </li>
                             
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

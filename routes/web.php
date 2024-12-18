@@ -9,6 +9,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserSubjectController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController;
 
 Route::get('/', function () {
     return view('/auth/login');
@@ -37,6 +38,9 @@ Route::resources([
 
 Route::resources([
     'user' => UserController::class,
+]);
+Route::resources([
+    'courses' => CourseController::class,
 ]);
 Route::resources([
     'professor' => HomeController::class,
