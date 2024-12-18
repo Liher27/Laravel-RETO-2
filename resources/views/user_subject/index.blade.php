@@ -1,12 +1,6 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Roles</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-      
+@section('content')
 <div class="container">
     <div class="card mt-5">
         <h3 class="card-header p-3">Roles</h3>
@@ -40,7 +34,4 @@
         </div>
     </div>
 </div>
-
-</body> 
-</html>
-
+@endsection

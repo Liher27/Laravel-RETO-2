@@ -14,7 +14,7 @@ class RegistrationController extends Controller
     public function index()
     {
         $registrations = Registration::orderBy('id')->paginate(15);
-        return view('registrations.index',['registrations' =>$registrations ]);
+        return view('registrations.index',['registrations' =>$registrations]);
     }
 
     /**

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('registration_date');
             $table->integer('school_year');
-
             $table->softDeletes('deleted_at', precision: 0);
+
 
 
             $table->foreign('id')->references('id')->on('courses')->onDelete('cascade');
