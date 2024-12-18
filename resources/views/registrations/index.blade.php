@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-      
 <div class="container">
     <div class="card mt-5">
         <h3 class="card-header p-3">Matriculas</h3>
@@ -32,7 +31,4 @@
         </div>
     </div>
 </div>
-
-</body> 
-</html>
 @endsection

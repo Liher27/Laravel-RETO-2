@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -27,5 +25,3 @@
 
 </ul>
 @endsection
-
-

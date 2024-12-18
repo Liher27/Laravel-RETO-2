@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('profesor_id');
             $table->unsignedBigInteger('subject_id');
-            $table->integer('day');
-            $table->integer('hour');
+            $table->integer('day')->nullable;
+            $table->integer('hour')->nullable;
             $table->softDeletes('deleted_at', precision: 0);
 
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
