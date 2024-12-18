@@ -30,9 +30,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'userSubjects' => UserSubjectController::class,
     ]);
-    Route::resources([
-        'professor' => HomeController::class,
-    ]);
-
     Route::get('/settings')->middleware(HomeController::class);
 });
