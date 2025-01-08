@@ -10,6 +10,7 @@ use App\Http\Controllers\UserSubjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RoleUserController;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -33,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
     ]);
     Route::resources([
         'courses' => CourseController::class,
+    ]);
+    Route::resources([
+        'role_users' => RoleUserController::class,
     ]);
 
     Route::get('/settings')->middleware(HomeController::class);

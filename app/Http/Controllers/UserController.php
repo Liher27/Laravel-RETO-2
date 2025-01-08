@@ -56,7 +56,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit',['user'=>$user]);
+        return view('user.edit',['user'=>$user]);
     }
 
     /**
@@ -74,7 +74,7 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
         $user->save();
         
-        return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $reunion->delete();
+        $user->delete();
         return redirect()->route('users.index');
     }
 }

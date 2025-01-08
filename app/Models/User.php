@@ -9,13 +9,14 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
 class User extends Authenticatable 
 {
-    public function roles(): BelongsTo {
-        return $this->belongs(roles::class,'role_id');
+    public function roles(): BelongsToMany {
+        return $this->belongsToMany(Role::class,'role_users');
     }
     public function registrations(): BelongsToMany {
         return $this->belongsToMany(Registration::class);

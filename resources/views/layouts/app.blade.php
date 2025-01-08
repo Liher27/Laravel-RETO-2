@@ -61,6 +61,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
+                                </li>
                             
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -76,10 +79,7 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-                                    </form>
-                                    <form id="create-form" action="{{ route('subjects.create') }}"  class="d-none">
-                                        @csrf
-                                    </form>
+                                    </form>                                    
                                 </div>
                             </li>
                         @endguest
