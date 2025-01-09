@@ -6,15 +6,24 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
+use App\Http\Controllers\RoleUserController;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Role;
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $user = User::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
-        return view('user.index',['users' => $user]);
+    {   
+        
+        $userRoles = Auth::user()->roles->pluck('id')->toArray();  
+        $users = User::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+        return view('user.index', [
+            'users' => $users,
+            'userRoles' => $userRoles
+        ]);
     }
 
     /**
@@ -30,6 +39,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+    
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -38,9 +48,14 @@ class UserController extends Controller
         $user->direction = $request->direction;
         $user->DNI = $request->DNI;
         $user->Telephone = $request->Telephone;
-        $user->role_id = $request->role_id;
+        //$user->role_id = $request->role_id;
+        $role = Role::find($request->role_id);
         $user->save();
-        return redirect()->route('user.index');
+        $user->roles()->attach($role);
+       
+        
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -73,6 +88,8 @@ class UserController extends Controller
         $user->Telephone = $request->Telephone;
         $user->role_id = $request->role_id;
         $user->save();
+
+
         
         return redirect()->route('users.index');
     }

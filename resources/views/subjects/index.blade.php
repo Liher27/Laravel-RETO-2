@@ -3,7 +3,7 @@
 <div class="container">
     <div class="card mt-5">
         <h3 class="card-header p-3">Asignaturas</h3>
-        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+        @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
              <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
         @endif
         <div class="card-body">
@@ -14,7 +14,7 @@
                         <th>ID_CICLO</th>
                         <th>NOMBRE_ASIGNATURA</th>
                         <th>HORAS_ASIGNATURA</th>
-                        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
+                        @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
                         <th>ACCIONES</th> 
                         @endif
                     </tr>
@@ -26,7 +26,7 @@
                         <td>{{ $subject->course_id }}</td>
                         <td>{{ $subject->subject_name }}</td>
                         <td>{{ $subject->subject_hours }}</td>
-                        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+                        @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
                             <td>
                                 <a href="{{ route('subjects.edit', $subject) }}" class="btn btn-sm btn-primary">Editar</a>
                                 <form action="{{ route('subjects.destroy', $subject) }}" method="POST" style="display:inline;">

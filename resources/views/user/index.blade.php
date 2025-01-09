@@ -4,6 +4,10 @@
 <div class="container">
     <div class="card mt-5">
         <h3 class="card-header p-3">USUARIOS</h3>
+            @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
+            <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">Crear Usuario</a>
+        @endif
+     
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>
@@ -12,7 +16,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>ROLE</th>
-                        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
+                        @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
                         <th>ACCIONES</th> 
                         @endif
                     </tr>
@@ -23,21 +27,22 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                           
-                            <td>{{$user->role_id}}</td>
-                           
-
-                            @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+                            <td>
+                                @foreach($user->roles as $role)    
+                                {{ $role->role_name}}
+                                @endforeach
+                            </td>
+                            @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
                             <td>
                             <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Editar</a>
-                                @if($user->role_id != 1 )
+                           
                                 <form action="{{ route('users.destroy', $user) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                                
-                               @endif                
+                                       
                             </td>
                         @endif
                         </tr>

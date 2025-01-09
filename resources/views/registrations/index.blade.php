@@ -23,7 +23,7 @@
                     @foreach($registrations as $registration)
                         <tr>
                             <td>{{ $registration->id }}</td>
-                            <td>{{ $registration->user_id }}</td>
+                            <td>{{ $registration->user->name }}</td>
                             <td>{{ $registration->registration_date }}</td>
                             <td>{{ $registration->school_year }}</td>
                             @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )

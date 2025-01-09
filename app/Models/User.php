@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Role_User;
 
 
 class User extends Authenticatable 
@@ -18,8 +19,8 @@ class User extends Authenticatable
     public function roles(): BelongsToMany {
         return $this->belongsToMany(Role::class,'role_users');
     }
-    public function registrations(): BelongsToMany {
-        return $this->belongsToMany(Registration::class);
+    public function registrations(): HasMany {
+        return $this->hasMany(Registration::class);
         }
 
     public function user_subjects(): BelongsToMany {
@@ -76,5 +77,8 @@ class User extends Authenticatable
     return $this->role_id;
 }
 
+    public function getRoleIDByuser(){
+
+    }
 
 }
