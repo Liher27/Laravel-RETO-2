@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {       $userRoles = Auth::user()->roles->pluck('id')->toArray();  
             $subjects = Subject::orderBy('course_id')->paginate(15);
-            return view('subjects.index',['subjects' => $subjects]);
+            return view('subjects.index', [
+                'subjects' => $subjects,
+                'userRoles' => $userRoles
+            ]);
 
     }
 

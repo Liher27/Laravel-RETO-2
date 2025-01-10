@@ -10,6 +10,7 @@ use App\Http\Controllers\UserSubjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\RoleUserController;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
