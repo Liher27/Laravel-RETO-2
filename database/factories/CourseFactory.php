@@ -24,7 +24,7 @@ class CourseFactory extends Factory
             'course_name'=>fake()->word(),
             'created_at'=>now(),
             'updated_at'=>now(),
-            'deleted_at'=>now(),
+            'deleted_at'=>null,
         ];
     }
 

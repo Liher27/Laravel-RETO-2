@@ -6,23 +6,23 @@
     @csrf
     @method('PUT')
     <div class="form-group mb-3">
-     <label for="titulo" class="form-label">course_id</label>
+     <label for="titulo" class="form-label">ID_CICLO</label>
      <input type="number" class="form-control" id="course_id" name="course_id" required
         value="{{$registration->id}}"/>
     </div>
     <div class="form-group mb-3">
-      <label for="titulo" class="form-label">user_id</label>
+      <label for="titulo" class="form-label">ID_USER</label>
       <input type="number" class="form-control" id="user_id" name="user_id" required>
        {{$registration->user_id}}
     </input>
     </div>
     <div class="form-group mb-3">
-      <label for="texto" class="form-label">registration_date</label>
+      <label for="texto" class="form-label">FECHA_MATRICULACION</label>
       <input type="text" class="form-control" id="registration_date" name="registration_date" required>
         {{$registration->registration_date}}
     </input>
     <div class="form-group mb-3">
-      <label for="texto" class="form-label">school_year</label>
+      <label for="texto" class="form-label">AÑO_ESCOLADO</label>
       <input type="number" class="form-control" id="school_year" name="school_year" required>
         {{$registration->school_year}}
     </input>

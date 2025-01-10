@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Registration;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class CourseController extends Controller
@@ -13,7 +13,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $course = Registration::orderBy('id')->paginate(15);
+        $course = Course::orderBy('id')->paginate(15);
         return view('courses.index',['courses' =>$course ]);
     }
 
@@ -40,7 +40,7 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Courses $course)
+    public function show(Course $course)
     {
         return view('courses.show',['course'=>$course]);
     }
@@ -48,7 +48,7 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Courses $course)
+    public function edit(Course $course)
     {
         return view('courses.edit',['course'=>$course]);
     }
@@ -56,7 +56,7 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Courses $course)
+    public function update(Request $request, Course $course)
     {
         $course->id = $request->id;
         $course->course_name = $request->course_name;
@@ -68,7 +68,7 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Courses $course)
+    public function destroy(Course $course)
     {
         $course->delete();
         return redirect()->route('courses.index');
