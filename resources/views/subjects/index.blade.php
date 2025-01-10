@@ -1,11 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    
     <div class="card mt-5">
         <h3 class="card-header p-3">Asignaturas</h3>
         @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
              <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
         @endif
+        
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>

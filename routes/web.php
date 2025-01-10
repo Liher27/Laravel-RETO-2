@@ -40,4 +40,6 @@ Route::middleware(['auth'])->group(function () {
     ]);
 
     Route::get('/settings')->middleware(HomeController::class);
+
+    Route::post('/users/add-role', [UserController::class, 'add'])->name('users.add-role');
 });
