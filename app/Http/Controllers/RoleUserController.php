@@ -29,10 +29,9 @@ class RoleUserController extends Controller
      */
     public function store(Request $request)
     {
-        $role_User = new Role_User();
-        $role_User->user_id = $request->user_id;
-        $role_User->role_id = $request->role_id;
-        $role_User->save();
+        $role = Role::find($request->role_id);
+                $user->roles()->attach($role);
+     
        
     }
 

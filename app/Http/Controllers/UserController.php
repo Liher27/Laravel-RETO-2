@@ -102,4 +102,13 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.index');
     }
+    public function addRole(){
+        $request->validate([
+            'role_id' => 'required|exists:roles,id',
+        ]);
+        $user = User::findOrFail($userId);
+        $role = Role::find($request->role_id);
+        $user->roles()->attach($role);
+        return redirect()->back()->with('success', 'Role added successfully!');
+    }
 }
