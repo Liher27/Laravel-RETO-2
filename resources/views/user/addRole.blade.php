@@ -2,13 +2,8 @@
 
 @section('content')
     <div class="container">
-        <h2>Assign Role to User</h2>
-
-        @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-
-        <form action="{{ route('users.addRole', $user->id) }}" method="POST">
+        <h2>Añadir nuevo rol</h2>
+        <form action="{{ route('users.addRole', $user) }}" method="POST">
     @csrf
     <div class="form-group mb-3">
         <label for="role_id" class="form-label">ROLE_ID</label>
@@ -19,7 +14,7 @@
             <option value="4">Student</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Add Role</button>
+    <button type="submit" class="btn btn-primary">Añadir Rol</button>
 </form>
 
     </div>

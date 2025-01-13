@@ -27,10 +27,15 @@ class RoleUserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,User $user)
     {
+        $request->validate([
+            'role_id' => 'required|exists:roles,id',
+        ]);
+        $user = User::findOrFail($userId);
         $role = Role::find($request->role_id);
-                $user->roles()->attach($role);
+        $user->roles()->attach($role);
+        return redirect()->back()->with('El rol ha sido añadido!');
      
        
     }

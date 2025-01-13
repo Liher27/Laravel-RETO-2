@@ -104,16 +104,28 @@ class UserController extends Controller
     }
     public function add(User $user){
 
-        return view('users.addRole',['user'=>$user]);
+        return view('user.addRole',['user'=>$user]);
+    }
+
+    public function delete(Request $request,User $user){
+
+        return view('user.deleteRole',['user'=>$user]);
+
+
+    }
+
+    public function deleteRole(Request $request,User $user){
+        dd($request->role_id);
+        $role = Role::find($request->role_id);
+        //$user->roles()->detach($role);
+
     }
 
     public function addRole(Request $request, User $user){
-        $request->validate([
-            'role_id' => 'required|exists:roles,id',
-        ]);
-        $user = User::findOrFail($userId);
+
+  
         $role = Role::find($request->role_id);
         $user->roles()->attach($role);
-        return redirect()->back()->with('El rol ha sido añadido!');
+        return redirect()->route('users.index');
     }
 }
