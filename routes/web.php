@@ -36,3 +36,4 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/settings')->middleware(HomeController::class);
 });
+

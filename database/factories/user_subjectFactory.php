@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
+class user_subjectFactory extends Factory
 {
     /**
      * The current password being used by the factory.
@@ -24,15 +24,10 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => "PRUEBA",
-            'direction' => fake()->address(),
-            'DNI' => fake()->unique()->safeEmail(),
-            'Telephone' => fake()->phoneNumber(),
-            'role_id' => random_int(1,4),
-            'remember_token' => Str::random(10),
+            'profesor_id' => null,
+            'subject_id' => random_int(1,10),
+            'day' => random_int(1,4),
+            'hour' => random_int(1,4),
             'created_at' => now(),
             'updated_at' => null,
             'deleted_at' => null
@@ -45,7 +40,6 @@ class UserFactory extends Factory
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
             'deleted_at' =>null,
             'updated_at' => null,
         ]);

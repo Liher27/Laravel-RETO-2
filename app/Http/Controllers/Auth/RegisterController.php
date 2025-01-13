@@ -34,10 +34,7 @@ class RegisterController extends Controller
      * @var string
      */
     public function redirectTo(){
-        
-       
         return '/settings';
-
     }
 
     /**

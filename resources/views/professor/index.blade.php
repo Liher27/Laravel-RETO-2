@@ -8,6 +8,8 @@
             <table class="table table-bordered data-table">
 
                 <thead>
+                
+
                     <tr>
                         <th></th>
                         <th>Lunes</th>
@@ -16,6 +18,7 @@
                         <th>Jueves</th>
                         <th>Viernes</th>
                     </tr>
+                    
                 </thead>
                 <tbody>
                     <tr>
