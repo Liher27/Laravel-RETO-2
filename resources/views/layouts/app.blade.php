@@ -21,7 +21,7 @@
     <div id="app" >
         
         <div class="container">
-        <nav class="navbar navbar-light navbar-auto" style="background-color:rgb(111, 184, 202); width: auto; height: auto;">
+        <nav class="navbar navbar-light navbar-auto" style="background-color:rgb(248, 248, 248); width: auto; height: auto;">
         <a href="{{ url('/') }}">
                 <img class="img-fluid" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo" style="width: 175px; height: auto;">
             </a>    
