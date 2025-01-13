@@ -31,7 +31,6 @@ class UserFactory extends Factory
             'direction' => fake()->address(),
             'DNI' => fake()->unique()->safeEmail(),
             'Telephone' => fake()->phoneNumber(),
-            'role_id' => random_int(1,4),
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => null,
