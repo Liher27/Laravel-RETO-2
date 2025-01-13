@@ -1,32 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<<<<<<< HEAD
-<ul>
-  @foreach ($subjects as $subject)
-    <li>
-    <div class="d-flex flex-row">
-    
-    @if(Auth::user()->getRoleID() == 1 ||Auth::user()->getRoleID() == 2 )
-
-      <a href="{{route('subjects.edit',$subject)}}" class="btn btn-sm btn-warning">Editar</a>
-      <form action="{{route('subjects.destroy',$subject)}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button class="btn btn-sm btn-danger" type="submit"
-          onclick="return confirm('Are you sure?')">Delete
-        </button>
-    </form>
-    </div>
-=======
 <div class="container">
-<<<<<<< HEAD
     @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
     <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
->>>>>>> ebd86c7dafc99119c7e0dfe1a833f536d2a4499e
     @endif
-=======
-    
->>>>>>> c79230dc9038da66a7dbe20a04bd676fef513616
     <div class="card mt-5">
         <h3 class="card-header p-3">Asignaturas</h3>
         @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
