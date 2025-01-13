@@ -20,10 +20,12 @@
 <body style="background-color:rgb(255, 255, 255);">
     <div id="app" >
         <div class="container">
-        <nav class="navbar navbar-light navbar-auto" style="width: auto; height: auto;">
+        <nav class="navbar navbar-light navbar-auto" style="background-color:rgb(248, 248, 248); width: auto; height: auto;">
         <a href="{{ url('/') }}">
                 <img class="img-fluid" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo" style="width: 175px; height: auto;">
-            </a>    
+        </a>                  
+        
+        @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

@@ -8,15 +8,16 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserSubjectController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\RoleUserController;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('home');
     });
+    Route::resources([
+        'admins' => AdminController::class,
+    ]);
     Route::resources([
         'users' => UserController::class,
     ]);
@@ -35,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'courses' => CourseController::class,
     ]);
+
     Route::get('/settings')->middleware(HomeController::class);
 });
 

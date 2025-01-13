@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    
+    @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+    <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
+    @endif
     <div class="card mt-5">
         <h3 class="card-header p-3">Asignaturas</h3>
         @if(in_array(1, $userRoles) || in_array(2, $userRoles))  

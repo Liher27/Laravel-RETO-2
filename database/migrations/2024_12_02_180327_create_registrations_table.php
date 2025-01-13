@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('registration_date');
             $table->integer('school_year');
             $table->softDeletes('deleted_at', precision: 0);
+            $table->unique('user_id','id');
+
 
 
 
