@@ -33,7 +33,8 @@
                                     </td>
                                 @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
                                         <td>
-                                                @if($user->id != 1)
+                                                     @if($user->role_id != 1 )
+                                                        @if($user->id != 1)
                                                     <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Editar</a>
                                                         <form action="{{ route('users.destroy', $user) }}" method="POST" style="display:inline;">
                                                             @csrf
@@ -41,10 +42,13 @@
                                                             <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                                                         </form>
                                                         @if($role->id != 4)
-                                                            <a href="{{ route('users.add') }}" class="btn btn-sm btn-primary">Añadir Role</a>
+                                                            <a href="{{ route('users.add', $user) }}" class="btn btn-sm btn-primary">Añadir Role</a>
+                                                            <a href="{{ route('users.delete',$user) }}" class="btn btn-sm btn-primary">Borrar Role</a>
+
                                                         @else 
                                                             <span class="popuptext" id="myPopup">No se puede añadir mas role en este usuario</span>
                                                         @endif
+                                                    @endif
                                                 @endif
                                         </td>
                                  @endif
