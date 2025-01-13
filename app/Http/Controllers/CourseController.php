@@ -12,15 +12,18 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {   
+    public function index(Request $request)
+    {
         $userRoles = Auth::user()->roles->pluck('id')->toArray();
-    $course = Course::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
-    return view('courses.index', [
-        'courses' =>$course,
-        'userRoles' => $userRoles
-    ]);
-        
+        $course = Course::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+        if ($request->expectsJson()) {
+            return response()->json($roles, $userRoles);
+        } else {
+            return view('courses.index', [
+                'courses' =>$course,
+                'userRoles' => $userRoles
+            ]);
+        }
     }
 
 
