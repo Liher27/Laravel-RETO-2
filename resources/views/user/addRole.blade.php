@@ -8,7 +8,7 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <form action="{{ route('users.add-role', $user->id) }}" method="POST">
+        <form action="{{ route('users.addRole', $user->id) }}" method="POST">
     @csrf
     <div class="form-group mb-3">
         <label for="role_id" class="form-label">ROLE_ID</label>

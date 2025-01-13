@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
 use App\Models\User;
+use App\Models\Role;
 use App\Models\Role_User;
 use App\Models\user_subject;
 use App\Models\Course;
@@ -22,20 +23,21 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class
         ]);
+
         User::factory()->count(70)->create();
-        // Creado el usuario con ID con el rol god
-        Role_User::factory()->create([
-            'role_id' => 1,
-            'user_id' => 1,
-        ]);
-        // Creados los 20 profesores
-        Role_User::factory()->count(20)->create([
-            'role_id' => 3,
-        ]);
-        // Creados los 50 alumnos
-        Role_User::factory()->count(50)->create([
-            'role_id' => 4,
-        ]);
+
+        $allusers = User::all();
+
+        foreach($allusers as $user){
+            if ($user->id == 1) {
+                $user->roles()->attach(1);
+            } elseif ($user->id > 1 && $user->id < 21) {
+                $user->roles()->attach(3);
+            } elseif ($user->id >= 21 || $user->id == 70) {
+                $user->roles()->attach(4);
+            }
+        };
+
         Course::factory(10)->create();
         Subject::factory()->count(10)->sequence(
             ['course_id' => 1],

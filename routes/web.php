@@ -37,3 +37,9 @@ Route::middleware(['auth'])->group(function () {
     ]);
     Route::get('/settings')->middleware(HomeController::class);
 });
+
+   Route::get('/users/addRole','App\Http\Controllers\UserController@addRole')->name('users.addRole');
+   Route::get('/users/add','App\Http\Controllers\UserController@add')->name('users.add');
+
+
+    

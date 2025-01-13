@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -11,11 +12,15 @@ class RoleController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request){
-        $roles = Role::orderBy('id')->paginate(5);
+        $roles = Role::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+        $userRoles = Auth::user()->roles->pluck('id')->toArray(); 
         if ($request->expectsJson()) {
-            return response()->json($roles);
+            return response()->json($roles, $userRoles);
         } else {
-            return view('roles.index',['roles' =>$roles]);
+            return view('roles.index', [
+                'roles' => $roles,
+                'userRoles' => $userRoles
+            ]);
         }
     }
 

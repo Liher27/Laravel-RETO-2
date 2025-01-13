@@ -3,6 +3,9 @@
 <div class="container">
     <div class="card mt-5">
         <h3 class="card-header p-3">Roles</h3>
+        @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
+                <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">Crear Usuario</a>
+            @endif
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>
@@ -12,12 +15,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($roles as $roles)
+                    @forelse($roles as $role)
                         <tr>
-                            <td>{{ $roles->id }}</td>
-                            <td>{{ $roles->role_name }}</td>
+                            <td>{{ $role->id }}</td>
+                            <td>{{ $role->role_name }}</td>
+                            @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
+                                        <td>
+                                                @if($role->id != 1)
+                                                        <form action="{{ route('roles.destroy', $role) }}" method="POST" style="display:inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                                        </form>
+                                                @endif
+                            @endif
                         </tr>
-                    @empty
+                         @empty
                         <tr>
                             <td colspan="3">There are no roles.</td>
                         </tr>

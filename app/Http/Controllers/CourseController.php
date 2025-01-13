@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class CourseController extends Controller
 {
     
@@ -13,13 +14,19 @@ class CourseController extends Controller
      */
     public function index(Request $request)
     {
-        $course = Course::orderBy('id')->paginate(15);
+        $userRoles = Auth::user()->roles->pluck('id')->toArray();
+        $course = Course::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
         if ($request->expectsJson()) {
-            return response()->json($roles);
+            return response()->json($roles, $userRoles);
         } else {
-            return view('courses.index',['courses' =>$course ]);
+            return view('courses.index', [
+                'courses' =>$course,
+                'userRoles' => $userRoles
+            ]);
         }
     }
+
+
 
     /**
      * Show the form for creating a new resource.
