@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                    
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -43,14 +43,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                            
+                            @endif       
                         @else
                                <li class="nav-item">
                                         <a class="nav-link" href="{{ route('registrations.index') }}">Matriculas</a>
@@ -60,6 +53,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
                                 </li>
                             
                             <li class="nav-item dropdown">
@@ -76,10 +72,7 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-                                    </form>
-                                    <form id="create-form" action="{{ route('subjects.create') }}"  class="d-none">
-                                        @csrf
-                                    </form>
+                                    </form>                                    
                                 </div>
                             </li>
                         @endguest
@@ -87,9 +80,22 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
+            <!-- @guest
+            @if (Route::has('login'))
+            @endif       
+            @else
+                <nav>
+                    <ul type='none' style="font-size:30px;margin-left:50px;margin-top:100px;">
+                        <li><a class="nav-link" href="{{ route('registrations.index') }}">Matriculas</a></li>
+                        <li><a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a></li>
+                        <li><a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a></li>
+                        <li><a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a></li>
+                    </ul>
+                </nav>
+            @endguest
+        </div> -->
         </main>
     </div>
 </body>

@@ -12,8 +12,8 @@ class UserSubjectController extends Controller
      */
     public function index()
     {
-        $user_subject = user_subject::orderBy('id')->paginate($PAGINATION_COUNT);
-        return view('user_subject.index',['user_subjects' => $user_subjects]);
+        $user_subject = user_subject::orderBy('profesor_id')->cursorPaginate(env('PAGINATION_COUNT'));
+        return view('user_subject.index',['user_subjects' => $user_subject]);
     }
 
     /**

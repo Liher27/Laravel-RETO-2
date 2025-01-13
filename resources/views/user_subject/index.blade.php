@@ -3,16 +3,19 @@
 @section('content')
 <div class="container">
     <div class="card mt-5">
-        <h3 class="card-header p-3">Roles</h3>
+        <h3 class="card-header p-3">ASIGNATURA PROFESORADA</h3>
+        @if(in_array(1, $userRoles) || in_array(2, $userRoles))  
+             <a href="{{ route('userSubjects.create') }}" class="btn btn-sm btn-primary">Crear Nueva</a>
+        @endif
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Rol name</th>
-                        <th>Rol name</th>
-                        <th>day</th>
-                        <th>Rol name</th>
+                        <th>ID_PROFESOR</th>
+                        <th>ID_ASIGNATURA</th>
+                        <th>DIAS</th>
+                        <th>HORAS</th>
                     </tr>
                 </thead>
                 <tbody>
