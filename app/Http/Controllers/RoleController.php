@@ -10,9 +10,13 @@ class RoleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(){
+    public function index(Request $request){
         $roles = Role::orderBy('id')->paginate(5);
-        return view('roles.index',['roles' =>$roles]);
+        if ($request->expectsJson()) {
+            return response()->json($roles);
+        } else {
+            return view('roles.index',['roles' =>$roles]);
+        }
     }
 
     /**

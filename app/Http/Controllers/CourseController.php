@@ -11,10 +11,14 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $course = Course::orderBy('id')->paginate(15);
-        return view('courses.index',['courses' =>$course ]);
+        if ($request->expectsJson()) {
+            return response()->json($roles);
+        } else {
+            return view('courses.index',['courses' =>$course ]);
+        }
     }
 
     /**
