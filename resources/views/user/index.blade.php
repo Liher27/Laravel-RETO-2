@@ -41,7 +41,7 @@
                                                             <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                                                         </form>
                                                         @if($role->id != 4)
-                                                            <a href="{{ route('users.add-role') }}" class="btn btn-sm btn-primary">Añadir Role</a>
+                                                            <a href="{{ route('users.add') }}" class="btn btn-sm btn-primary">Añadir Role</a>
                                                         @else 
                                                             <span class="popuptext" id="myPopup">No se puede añadir mas role en este usuario</span>
                                                         @endif

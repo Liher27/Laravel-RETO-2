@@ -104,16 +104,16 @@ class UserController extends Controller
     }
     public function add(User $user){
 
-        return view('user.addRole',['user'=>$user]);
+        return view('users.addRole',['user'=>$user]);
     }
 
-    public function addRole(Request $request){
+    public function addRole(Request $request, User $user){
         $request->validate([
             'role_id' => 'required|exists:roles,id',
         ]);
         $user = User::findOrFail($userId);
         $role = Role::find($request->role_id);
         $user->roles()->attach($role);
-        return redirect()->back()->with('success', 'Role added successfully!');
+        return redirect()->back()->with('El rol ha sido añadido!');
     }
 }
