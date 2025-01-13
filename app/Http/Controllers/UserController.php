@@ -115,17 +115,23 @@ class UserController extends Controller
     }
 
     public function deleteRole(Request $request,User $user){
-        dd($request->role_id);
+
+        dd($request);
         $role = Role::find($request->role_id);
-        //$user->roles()->detach($role);
+
+        // $user->roles()->detach($role);
+        // return redirect()->route('users.index');
 
     }
 
     public function addRole(Request $request, User $user){
 
-  
-        $role = Role::find($request->role_id);
-        $user->roles()->attach($role);
-        return redirect()->route('users.index');
+        if ($user->roles()->count() >= 2) { 
+            echo '<p>No puedes tener más roles.</p>';
+        } else {
+            $role = Role::find($request->role_id);
+            $user->roles()->attach($role);
+            return redirect()->route('users.index');
+        }
     }
 }

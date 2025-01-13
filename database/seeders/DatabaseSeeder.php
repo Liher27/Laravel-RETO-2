@@ -25,9 +25,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->count(70)->create();
-<<<<<<< HEAD
-        // Creado el usuario con ID con el rol god
-=======
 
         $allusers = User::all();
 
@@ -40,7 +37,6 @@ class DatabaseSeeder extends Seeder
                 $user->roles()->attach(4);
             }
         };
->>>>>>> 67f6dac63b6081545e5b0c7e7bd571bf5c4ce431
 
         Course::factory(10)->create();
         Subject::factory()->count(10)->sequence(
