@@ -16,6 +16,9 @@ Route::middleware(['auth'])->group(function () {
         return view('home');
     });
     Route::resources([
+        'admins' => AdminController::class,
+    ]);
+    Route::resources([
         'users' => UserController::class,
     ]);
     Route::resources([

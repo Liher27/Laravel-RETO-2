@@ -22,9 +22,14 @@
         
         <div class="container">
         <nav class="navbar navbar-light navbar-auto" style="background-color:rgb(111, 184, 202); width: auto; height: auto;">
+        
+        @if(Auth::user()->getRoleID() == 1)
+        
         <a href="{{ url('/') }}">
                 <img class="img-fluid" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo" style="width: 175px; height: auto;">
-            </a>    
+        </a>                  
+        
+        @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
