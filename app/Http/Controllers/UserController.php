@@ -130,8 +130,15 @@ class UserController extends Controller
             echo '<p>No puedes tener más roles.</p>';
         } else {
             $role = Role::find($request->role_id);
-            $user->roles()->attach($role);
+            
+            if (!$user->roles()->where('id', $role->id)->exists()) {
+                $user->roles()->attach($role);
+            } else {
+                echo '<p>Este rol ya ha sido asignado.</p>';
+            }
+        
             return redirect()->route('users.index');
         }
+        
     }
 }
