@@ -11,13 +11,17 @@ class RoleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(){
-        $userRoles = Auth::user()->roles->pluck('id')->toArray();  
+    public function index(Request $request){
         $roles = Role::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
-        return view('roles.index', [
-            'roles' => $roles,
-            'userRoles' => $userRoles
-        ]);
+        $userRoles = Auth::user()->roles->pluck('id')->toArray(); 
+        if ($request->expectsJson()) {
+            return response()->json($roles, $userRoles);
+        } else {
+            return view('roles.index', [
+                'roles' => $roles,
+                'userRoles' => $userRoles
+            ]);
+        }
     }
 
     /**
