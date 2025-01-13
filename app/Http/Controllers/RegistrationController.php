@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
     
@@ -13,8 +14,12 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::orderBy('id')->paginate(15);
-        return view('registrations.index',['registrations' =>$registrations]);
+        $userRoles = Auth::user()->roles->pluck('id')->toArray();  
+        $registrations = Registration::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+        return view('registrations.index', [
+            'registrations' =>$registrations,
+            'userRoles' => $userRoles
+        ]);
     }
 
     /**

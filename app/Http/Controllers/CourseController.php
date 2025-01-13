@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class CourseController extends Controller
 {
     
@@ -12,10 +13,17 @@ class CourseController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $course = Course::orderBy('id')->paginate(15);
-        return view('courses.index',['courses' =>$course ]);
+    {   
+        $userRoles = Auth::user()->roles->pluck('id')->toArray();
+    $course = Course::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+    return view('courses.index', [
+        'courses' =>$course,
+        'userRoles' => $userRoles
+    ]);
+        
     }
+
+
 
     /**
      * Show the form for creating a new resource.

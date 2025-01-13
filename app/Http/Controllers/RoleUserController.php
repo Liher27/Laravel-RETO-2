@@ -64,6 +64,8 @@ class RoleUserController extends Controller
      */
     public function destroy(Role_User $role_User)
     {
+        $role_User->delete();
+        return redirect()->route('users.index');
         
     }
 }

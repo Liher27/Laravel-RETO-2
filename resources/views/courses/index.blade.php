@@ -3,7 +3,7 @@
 <div class="container">
     <div class="card mt-5">
         <h3 class="card-header p-3">Modelos</h3>
-        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2 )
+        @if(in_array(1, $userRoles) || in_array(2, $userRoles)) 
             <a href="{{ route('courses.create') }}" class="btn btn-sm btn-primary">Crear Modulos</a>
         @endif
         <div class="card-body">

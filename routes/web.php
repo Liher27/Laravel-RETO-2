@@ -40,3 +40,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings')->middleware(HomeController::class);
 });
 
+<<<<<<< HEAD
+=======
+   Route::get('/users/addRole','App\Http\Controllers\UserController@addRole')->name('users.addRole');
+   Route::get('/users/add','App\Http\Controllers\UserController@add')->name('users.add');
+
+
+    
+>>>>>>> 9cb94a7d9dc3a67b6827badf265ee525624e8715
