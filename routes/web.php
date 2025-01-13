@@ -35,11 +35,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'courses' => CourseController::class,
     ]);
-    Route::resources([
-        'role_users' => RoleUserController::class,
-    ]);
-
     Route::get('/settings')->middleware(HomeController::class);
-
-    Route::post('/users/add-role', [UserController::class, 'add'])->name('users.add-role');
 });

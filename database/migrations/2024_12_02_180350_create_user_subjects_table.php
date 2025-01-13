@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('subject_id');
             $table->integer('day');
             $table->integer('hour');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->softDeletes('deleted_at', precision: 0);
 
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
