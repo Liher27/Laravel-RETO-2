@@ -18,6 +18,8 @@ class Role extends Model
         return $this->belongsToMany(User::class, 'role_users');
     }
 
+    public $timestamps = false;
+
 }
 
 
