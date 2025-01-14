@@ -24,8 +24,6 @@
         <a href="{{ url('/') }}">
                 <img class="img-fluid" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo" style="width: 175px; height: auto;">
         </a>                  
-        
-        @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -58,8 +56,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
