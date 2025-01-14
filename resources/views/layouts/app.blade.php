@@ -17,23 +17,13 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body style="background-color:rgb(255, 255, 255);">
     <div id="app" >
-        
         <div class="container">
-<<<<<<< HEAD
-        <nav class="navbar navbar-light navbar-auto" style="background-color:rgb(111, 184, 202); width: auto; height: auto;">
-        
-        @if(Auth::user()->getRoleID() == 1)
-        
-=======
         <nav class="navbar navbar-light navbar-auto" style="background-color:rgb(248, 248, 248); width: auto; height: auto;">
->>>>>>> fbe7832f02cea722bbdfe61b2149cc387b242bf5
         <a href="{{ url('/') }}">
                 <img class="img-fluid" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo" style="width: 175px; height: auto;">
         </a>                  
-        
-        @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -45,13 +35,13 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ">
-                    <a>
-                <select class="form-select" aria-label="Small select example">
-                    <option selected>Castellano</option>
-                    <option value="1">Euskera</option>
-                </select>
-                </a>
+                    <ul class="navbar-nav" >
+                        <a>
+                            <select class="form-select" aria-label="Small select example">
+                                <option selected>Castellano</option>
+                                <option value="1">Euskera</option>
+                            </select>
+                        </a>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -66,8 +56,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
