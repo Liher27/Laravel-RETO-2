@@ -36,10 +36,10 @@
     <div class="form-group mb-3">
       <label for="texto" class="form-label">ROLE_ID</label>
       <select id="role_id" name="role_id">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+      <?php foreach ($roles as $role) { ?>
+         <option value="<?php echo $role->id; ?>"><?php echo $role->role_name; ?></option>
+             <?php } ?>
+
       </select>
     </div>
     <button type="submit" class="btn btn-primary" name="">Crear</button>

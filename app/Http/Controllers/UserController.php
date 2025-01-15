@@ -31,7 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $roles = Role::all();
+        return view('user.create', compact('roles'));
     }
 
     /**
@@ -104,7 +105,8 @@ class UserController extends Controller
     }
     public function add(User $user){
 
-        return view('user.addRole',['user'=>$user]);
+        $roles = Role::all();
+        return view('user.addRole', compact('user', 'roles'));
     }
 
     public function delete(Request $request,User $user){
@@ -125,20 +127,35 @@ class UserController extends Controller
     }
 
     public function addRole(Request $request, User $user){
-
         if ($user->roles()->count() >= 2) { 
             echo '<p>No puedes tener más roles.</p>';
         } else {
             $role = Role::find($request->role_id);
-            
-            if (!$user->roles()->where('id', $role->id)->exists()) {
-                $user->roles()->attach($role);
+            if (!$role) {
+                echo '<p>Este rol no existe.</p>';
             } else {
-                echo '<p>Este rol ya ha sido asignado.</p>';
+                if (!$user->roles()->where('id', $role->id)->exists()) {
+                    $currentUserRoleId = Auth::user()->roles->pluck('id')->first();
+                    if ($currentUserRoleId == 1) {
+                        $user->roles()->attach($role);
+                    } elseif ($currentUserRoleId == 2) {
+                        if ($role->id != 1) {
+                            if ($user->roles()->where('id', 1)->exists()) {
+                                echo '<p>Error: No puedes asignar roles a usuarios del grupo 1.</p>';
+                            } else {
+                                $user->roles()->attach($role);
+                            }
+                        } else {
+                            echo '<p>Error: No puedes asignar roles god a este usuario.</p>';
+                        }
+                    } else {
+                        echo '<p>No tienes permiso para añadir roles.</p>';
+                    }
+                } else {
+                    echo '<p>Este rol ya ha sido asignado.</p>';
+                }
             }
-        
             return redirect()->route('users.index');
         }
-        
     }
 }

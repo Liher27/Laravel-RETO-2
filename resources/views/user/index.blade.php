@@ -35,6 +35,7 @@
                                         <td>
                                                      @if($user->role_id != 1 )
                                                         @if($user->id != 1)
+                                                          
                                                     <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Editar</a>
                                                         <form action="{{ route('users.destroy', $user) }}" method="POST" style="display:inline;">
                                                             @csrf
