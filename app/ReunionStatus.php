@@ -5,6 +5,6 @@ namespace App;
 enum ReunionStatus: string
 {
     case aceptada = 'Aceptada';
-    case cancelada = 'Pancelada';
+    case cancelada = 'Cancelada';
     case pendiente = 'Pendiente';
 }

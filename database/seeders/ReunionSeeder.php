@@ -16,7 +16,8 @@ class ReunionSeeder extends Seeder
         DB::table('reunions')->insert([
             "profesor_id"=>"1",
             "student_id"=>"2",
-            "date"=>"2023-01-01",  
+            "date"=>"2023-01-01", 
+            "created_at"=>now(), 
         ]);  
     }   
 }
