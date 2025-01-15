@@ -31,10 +31,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'userSubjects' => UserSubjectController::class,
     ]);
+
     Route::resources([
         'courses' => CourseController::class,
     ]);
-    Route::get('/settings')->middleware(HomeController::class);
+
+    Route::get('/settings', [HomeController::class, 'handle']);
 });
 
    Route::post('/users/{user}/addRole','App\Http\Controllers\UserController@addRole')->name('users.addRole');

@@ -25,23 +25,16 @@ class HomeController extends Controller
     * @param  \Closure  $next
     * @return mixed
     */
-    public function handle($request, Closure $next) {
-        if (Auth::check() && Auth::user()->role_id == 1) {
-            return response()->view('god.index');
-        }
-
-        if (Auth::check() && Auth::user()->role_id == 2) {
-            return response()->view('admin.index');
-        }
-
-        if (Auth::check() && Auth::user()->role_id == 3) {
-            return response()->view('professor.index');
-        }
-
-        if (Auth::check() && Auth::user()->role_id >= 4) {
-            return redirect('/');
-        }
-
-        return $next($request);
+    public function handle(Request $request)
+    {
+            $user_roles = Auth::user()->roles->pluck('id')->toArray();
+                if(in_array(1, $user_roles))
+                    return view('god.index');
+                else if(in_array(2, $user_roles))
+                    return view('admin.index');
+                else if(in_array(3, $user_roles))
+                    return view('professor.index');
+                else
+                    return redirect('/');
     }
 }

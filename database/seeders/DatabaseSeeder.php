@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             } elseif ($user->id >= 21 || $user->id == 70) {
                 $user->roles()->attach(4);
             }
+
         };
 
         Course::factory(10)->create();
