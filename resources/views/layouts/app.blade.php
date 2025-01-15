@@ -56,7 +56,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
                                 </li>
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
                                 </li>
