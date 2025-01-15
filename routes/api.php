@@ -3,20 +3,14 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\UserSubjectController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\RoleUserController;
+use App\Http\Controllers\ApiController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/horario/{id}', [ApiController::class, 'getHorario']);
 
-Route::apiresources([
-    'home' => HomeController::class,
-]);
+Route::post('/token', [ApiController::class, 'login']);
+
+Route::post('/logout', [ApiController::class, 'logout'])
+    ->middleware('auth:sanctum');
+
+Route::get('/modificarReunion/{id}/{estado}', [ApiController::class, 'modificarReunion'])
+    ->middleware('auth:sanctum');

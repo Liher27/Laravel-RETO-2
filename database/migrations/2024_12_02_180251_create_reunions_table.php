@@ -19,6 +19,8 @@ return new class extends Migration
             $table->enum('reunionStatus', array_column(ReunionStatus::cases(), 'value'))->default(ReunionStatus::pendiente->value);
             $table->date('date');
             $table->softDeletes('deleted_at', precision: 0);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->unique('profesor_id','student_id');
             $table->foreign('profesor_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');

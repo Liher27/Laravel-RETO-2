@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('direction')->nullable();
             $table->string('DNI');
             $table->string('Telephone');
-            // como se ha hecho la relacion n-m con la tabla role_users, esto no tiene que existir
-            //$table->unsignedBigInteger('role_id');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes('deleted_at', precision: 0);
