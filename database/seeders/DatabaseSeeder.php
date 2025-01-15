@@ -15,9 +15,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $this->call([
@@ -74,19 +71,6 @@ class DatabaseSeeder extends Seeder
             ['profesor_id' => 19],
             ['profesor_id' => 20],
         )->create();
-
-        Role_User::factory()->create([
-            'role_id' => 1,
-            'user_id' => 1,
-        ]);
-        // Creados los 20 profesores
-        Role_User::factory()->count(20)->create([
-            'role_id' => 3,
-        ]);
-        // Creados los 50 alumnos
-        Role_User::factory()->count(50)->create([
-            'role_id' => 4,
-        ]);
 
         $this->call([
         ReunionSeeder::class,

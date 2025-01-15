@@ -8,18 +8,12 @@
              <a href="{{ route('userSubjects.create') }}" class="btn btn-sm btn-primary">Crear Nueva</a>
         @endif
         <div class="card-body">
-            <table class="table table-bordered data-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>ID_PROFESOR</th>
-                        <th>ID_ASIGNATURA</th>
-                        <th>DIAS</th>
-                        <th>HORAS</th>
-                    </tr>
-                </thead>
+        @php
+                $headers = ['ID', 'ID_PROFESOR', 'ID_ASIGNATURA', 'DIAS', 'HORAS'];
+            @endphp
+            <x-table :headers="$headers">
                 <tbody>
-                    @forelse($user_subjects as $user_subjects)
+                    @forelse($user_subject as $user_subjects)
                         <tr>
                             <td>{{ $user_subjects->id }}</td>
                             <td>{{ $user_subjects->profesor_id }}</td>
@@ -33,7 +27,7 @@
                         </tr>
                     @endforelse
                 </tbody>
-            </table>
+            </x-table>
         </div>
     </div>
 </div>
