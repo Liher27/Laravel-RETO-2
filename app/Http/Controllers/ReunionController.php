@@ -34,7 +34,7 @@ class ReunionController extends Controller
         $reunion->profesor_id = $request->profesor_id;
         $reunion->student_id = $request->student_id;
         $reunion->date = $request->date;
-        $reunion->save();
+                $reunion->save();
         return redirect()->route('reunion.index');
     }
 

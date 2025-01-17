@@ -11,8 +11,6 @@
             <?php foreach ($roles as $role) { ?>
          <option value="<?php echo $role->id; ?>"><?php echo $role->role_name; ?></option>
              <?php } ?>
-
-            
         </select>
     </div>
     <button type="submit" class="btn btn-primary">Añadir Rol</button>

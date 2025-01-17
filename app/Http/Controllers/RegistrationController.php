@@ -16,6 +16,7 @@ class RegistrationController extends Controller
     {
         $userRoles = Auth::user()->roles->pluck('id')->toArray();  
         $registrations = Registration::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+        
         return view('registrations.index', [
             'registrations' =>$registrations,
             'userRoles' => $userRoles

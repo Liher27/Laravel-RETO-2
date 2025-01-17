@@ -49,7 +49,6 @@ class UserController extends Controller
         $user->direction = $request->direction;
         $user->DNI = $request->DNI;
         $user->Telephone = $request->Telephone;
-        //$user->role_id = $request->role_id;
         $role = Role::find($request->role_id);
         $user->save();
         $user->roles()->attach($role);
@@ -64,7 +63,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.show',['user'=>$user]);
+        return view('user.show',['users'=>$user]);
     }
 
     /**
@@ -87,11 +86,8 @@ class UserController extends Controller
         $user->direction = $request->direction;
         $user->DNI = $request->DNI;
         $user->Telephone = $request->Telephone;
-        $user->role_id = $request->role_id;
         $user->save();
 
-
-        
         return redirect()->route('users.index');
     }
 
@@ -99,7 +95,8 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(User $user)
-    {
+    {   
+
         $user->delete();
         return redirect()->route('users.index');
     }

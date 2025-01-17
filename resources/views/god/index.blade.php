@@ -1,5 +1,3 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<p>i m a god</p>
-@endsection

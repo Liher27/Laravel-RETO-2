@@ -12,7 +12,7 @@ class Registration extends Model
 {
     public $timestamps = false;
     use SoftDeletes;
-
+    
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }
