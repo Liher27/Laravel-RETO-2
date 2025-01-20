@@ -6,20 +6,13 @@
         @if(in_array(1, $userRoles) || in_array(2, $userRoles)) 
             <a href="{{ route('registrations.create') }}" class="btn btn-sm btn-primary">Crear Matriculas</a>
         @endif
-        <div class="card-body">
-            <table class="table table-bordered data-table">
-                <thead>
-                    <tr>
-                        <th>ID_MATRICULA</th>
-                        <th>ID_USER</th>
-                        <th>FECHA_MATRICULACION</th>
-                        <th>AÑO_ESCOLADO</th>
-                        @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
-                        <th>ACCIONES</th> 
-                        @endif
-                    </tr>
-                </thead>
-                <tbody>
+        <div class="d-flex justify-content-end">
+                <div class="card-body">
+                    @php
+                        $headers = ['ID', 'Name', 'Registration', 'Año escolar','Acciones'];
+                    @endphp
+                    <x-table :headers="$headers">
+                        <tbody>
                     @foreach($registrations as $registration)
                         <tr>
                             <td>{{ $registration->id }}</td>
@@ -40,7 +33,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
+            </x-table>
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">    
 
     <!-- Custom Styles -->
     <style>
@@ -24,7 +24,9 @@
             left: 0;
             z-index: 1000;
             width: 250px;
-            background: linear-gradient(180deg, #3cb4e5, #3cb4e5);
+            background: linear-gradient(180deg, #211261
+            , #211261
+        );
             color: #fff;
             padding: 1rem 0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -33,7 +35,8 @@
         }
 
         .navbar:hover {
-            background: linear-gradient(180deg, rgba(60, 181, 229, 0.6), rgba(60, 181, 229, 0.6));
+            background: linear-gradient(180deg, #211261, #211261
+        );
         }
 
         .navbar-nav .nav-link {
@@ -119,20 +122,18 @@
     </style>
 </head>
 
-<body style="background-color:rgb(245, 245, 245);">
+<body style="background-color:rgba(0, 0, 0, 0);">
 
     <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
         <!-- Toggler button for mobile -->
-        <button style='margin: 10px 0' ; class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="{{ __('Toggle navigation') }}">
+        <button style= 'margin: 10px 0'; class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
             <a href="{{ url('/') }}">
                 <img class="img-responsive" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo"
                     style="width: 175px; height: auto;">
             </a>
         </button>
-        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
@@ -186,23 +187,6 @@
 
     <div class="main-container">
         <div id="app"></div>
-        <div class="form-check form-switch" style=" display flex-direction: auto;">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Estado: Inactivo</label>
-        </div>
-
-        <script>
-            const switchButton = document.getElementById('flexSwitchCheckDefault');
-            const label = document.querySelector('.form-check-label');
-
-            switchButton.addEventListener('change', function () {
-                if (switchButton.checked) {
-                    label.textContent = 'Modo Claro';
-                } else {
-                    label.textContent = 'Modo Oscuro';
-                }
-            });
-        </script>
 
         <main class="py-4">
             @yield('content')

@@ -33,13 +33,12 @@ class HomeController extends Controller
             $registrations = Registration::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
             $roles = Role::where('id', '<=', 3)->get();      
             $user_roles = Auth::user()->roles->pluck('id')->toArray();
-            $count = \App\Models\Registration::count();
-
+            $subjects = Subject::orderBy('id')->paginate(env('PAGINATION_COUNT'));
                 if(in_array(1, $user_roles))
                 return view('god.index', [
                     'registrations' =>$registrations,
-                    'count' =>$count,
                     'roles' =>$roles,
+                    'subjects' =>$subjects,
                 ]);
                 else if(in_array(2, $user_roles))
                     return view('admin.index');
