@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends(request()->query('layout', 'layouts.app')) 
 @section('content')
 <div class="container">
     @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
@@ -6,10 +6,16 @@
     @endif
     <div class="container">
         <div class="card mt-5">
-            <h3 class="card-header p-3">Asignaturas</h3>
+        <h3 class="card-header p-3">Usuarios</h3>   
+        <h3 class="card-header p-3">
             @if(in_array(1, $userRoles) || in_array(2, $userRoles))
-                <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
+                <div class="d-flex justify-content-end">
+                    <x-button route="{{ route('subjects.create') }}" icon="bi bi-person-fill-add" size="fs-3">
+                        Crear Asignatura
+                    </x-button>
+                </div>
             @endif
+        </h3>
             <div class="d-flex justify-content-end">
                 <div class="card-body">
                     @php

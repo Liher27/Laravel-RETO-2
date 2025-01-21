@@ -1,3 +1,2 @@
-@extends('layouts.admin')
-
+@extends(request()->query('layout', 'layouts.admin')) 
 @section('content')

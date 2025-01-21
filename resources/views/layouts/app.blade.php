@@ -122,7 +122,6 @@
 <body style="background-color:rgb(245, 245, 245);">
 
     <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
-        <!-- Toggler button for mobile -->
         <button style='margin: 10px 0' ; class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="{{ __('Toggle navigation') }}">
@@ -132,7 +131,7 @@
                     style="width: 175px; height: auto;">
             </a>
         </button>
-        
+       
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
@@ -143,17 +142,17 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('registrations.index') }}">{{ __('Matriculas') }}</a>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a>
+                        <a class="nav-link" href="{{ route('subjects.index') }}"><u>{{ __('Asignatura') }}</u></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
+                        <a class="nav-link" href="{{ route('courses.index') }}"><u>{{ __('Ciclos') }}</u></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
+                        <a class="nav-link" href="{{ route('users.index') }}"><u>{{ __('Usuarios') }}</u></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -172,7 +171,11 @@
                             </form>
                         </div>
                     </li>
-
+                    <li>
+                    <a href="{{ url()->current() }}?layout=layouts.app" class="bi bi-brightness-high-fill fs-3"></a>
+                    <a href="{{ url()->current() }}?layout=layouts.appDark" class="bi bi-moon fs-3"></a>
+                    </li>
+                    
                     <a>
                         <select class="form-select" aria-label="Small select example" style="margin: auto;">
                             <option selected>Castellano</option>
@@ -187,23 +190,7 @@
     <div class="main-container">
         <div id="app"></div>
         <div class="form-check form-switch" style=" display flex-direction: auto;">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Estado: Inactivo</label>
         </div>
-
-        <script>
-            const switchButton = document.getElementById('flexSwitchCheckDefault');
-            const label = document.querySelector('.form-check-label');
-
-            switchButton.addEventListener('change', function () {
-                if (switchButton.checked) {
-                    label.textContent = 'Modo Claro';
-                } else {
-                    label.textContent = 'Modo Oscuro';
-                }
-            });
-        </script>
-
         <main class="py-4">
             @yield('content')
         </main>

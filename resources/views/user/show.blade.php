@@ -1,11 +1,10 @@
-@extends('layouts.app')
-
+@extends(request()->query('layout', 'layouts.app')) 
 @section('content')
 <div class="container">
   <div class="card mt-5">
     @php
     $headers = ['ID', 'Name', 'Email', 'Direccion', 'Dni', 'Rol'];
-  @endphp
+    @endphp
 
     <x-table :headers="$headers">
       <tbody>

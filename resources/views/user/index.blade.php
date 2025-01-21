@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends(request()->query('layout', 'layouts.app')) 
 @section('content')
 <div class="container">
     <div class="card mt-5">
@@ -34,18 +34,15 @@
                                     <x-button style="success" route="{{ route('users.edit', $user) }}" icon="bi bi-pen"
                                         size="fs-4">
                                     </x-button>
-                                    <!-- Delete Button to Open Modal -->
                                     <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#deleteUserModal{{ $user->id }}">
                                         <i class="bi bi-trash3 fs-4"></i>
                                     </button>
 
-                                    <!-- Delete Confirmation Modal -->
                                     <div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1"
                                         aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
-                                                <!-- Modal Header -->
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="deleteUserModalLabel{{ $user->id }}">
                                                         Confirmación
@@ -53,11 +50,9 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
-                                                <!-- Modal Body -->
                                                 <div class="modal-body">
                                                     ¿Estás seguro de que deseas eliminar a <strong>{{ $user->name }}</strong>?
                                                 </div>
-                                                <!-- Modal Footer -->
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Cancelar</button>

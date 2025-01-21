@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Pagination\Paginator;
 class SubjectController extends Controller
 {
     /**
@@ -14,7 +12,7 @@ class SubjectController extends Controller
      */
     public function index()
     {       $userRoles = Auth::user()->roles->pluck('id')->toArray();  
-            $subjects = Subject::orderBy('id')->paginate(env('PAGINATION_COUNT'));
+            $subjects = Subject::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
             return view('subjects.index', [
                 'subjects' => $subjects,
                 'userRoles' => $userRoles

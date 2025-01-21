@@ -14,7 +14,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Custom Styles -->
     <style>
@@ -24,9 +24,7 @@
             left: 0;
             z-index: 1000;
             width: 250px;
-            background: linear-gradient(180deg, #211261
-            , #211261
-        );
+            background: linear-gradient(180deg, #211261, #211261);
             color: #fff;
             padding: 1rem 0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -35,8 +33,7 @@
         }
 
         .navbar:hover {
-            background: linear-gradient(180deg, #211261, #211261
-        );
+            background: linear-gradient(180deg, #211261, #211261);
         }
 
         .navbar-nav .nav-link {
@@ -126,8 +123,9 @@
 
     <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
         <!-- Toggler button for mobile -->
-        <button style= 'margin: 10px 0'; class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button style='margin: 10px 0' ; class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
             <a href="{{ url('/') }}">
                 <img class="img-responsive" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo"
@@ -145,16 +143,16 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('registrations.index') }}">{{ __('Matriculas') }}</a>
+                        <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('subjects.index') }}">{{ __('Asignatura') }}</a>
+                        <a class="nav-link" href="{{ route('subjects.index') }}"><u>{{ __('Asignatura') }}</u></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Modelos') }}</a>
+                        <a class="nav-link" href="{{ route('courses.index') }}"><u>{{ __('Ciclos    ') }}</u></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
+                        <a class="nav-link" href="{{ route('users.index') }}"><u>{{ __('Usuarios') }}</u></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -173,13 +171,17 @@
                             </form>
                         </div>
                     </li>
-
+                    <li>
+                        <a href="{{ url()->current() }}?layout=layouts.app" class="bi bi-brightness-high-fill fs-3"></a>
+                        <a href="{{ url()->current() }}?layout=layouts.appDark" class="bi bi-moon fs-3"></a>
+                    </li>
                     <a>
                         <select class="form-select" aria-label="Small select example" style="margin: auto;">
                             <option selected>Castellano</option>
                             <option value="1">Euskera</option>
                         </select>
                     </a>
+
                 @endguest
             </ul>
         </div>

@@ -1,5 +1,4 @@
-@extends('layouts.admin')
-
+@extends(request()->query('layout', 'layouts.admin')) 
 @section('content')
 @php
                 $headers = ['ID', 'ID_PROFESOR', 'ID_ASIGNATURA', 'DIAS', 'HORAS'];
