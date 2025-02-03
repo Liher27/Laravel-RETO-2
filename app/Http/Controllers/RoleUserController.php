@@ -45,7 +45,7 @@ class RoleUserController extends Controller
      */
     public function show(Role_User $role_User)
     {
-        
+        return view(view: 'role.index');
     }
 
     /**

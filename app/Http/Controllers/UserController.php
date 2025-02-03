@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Pagination\Paginator;
-use App\Http\Controllers\RoleUserController;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Role;
@@ -19,7 +16,7 @@ class UserController extends Controller
     {   
         
         $userRoles = Auth::user()->roles->pluck('id')->toArray();  
-        $users = User::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+        $users = User::orderBy('name','desc')->cursorPaginate(env('PAGINATION_COUNT'));
         return view('user.index', [
             'users' => $users,
             'userRoles' => $userRoles
@@ -49,7 +46,6 @@ class UserController extends Controller
         $user->direction = $request->direction;
         $user->DNI = $request->DNI;
         $user->Telephone = $request->Telephone;
-        //$user->role_id = $request->role_id;
         $role = Role::find($request->role_id);
         $user->save();
         $user->roles()->attach($role);
@@ -64,7 +60,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.show',['user'=>$user]);
+        return view('user.show',['users'=>$user]);
     }
 
     /**
@@ -87,11 +83,8 @@ class UserController extends Controller
         $user->direction = $request->direction;
         $user->DNI = $request->DNI;
         $user->Telephone = $request->Telephone;
-        $user->role_id = $request->role_id;
         $user->save();
 
-
-        
         return redirect()->route('users.index');
     }
 
@@ -99,7 +92,8 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(User $user)
-    {
+    {   
+
         $user->delete();
         return redirect()->route('users.index');
     }
@@ -118,11 +112,10 @@ class UserController extends Controller
 
     public function deleteRole(Request $request,User $user){
 
-        dd($request);
         $role = Role::find($request->role_id);
 
-        // $user->roles()->detach($role);
-        // return redirect()->route('users.index');
+        $user->roles()->detach($role);
+        return redirect()->route('users.index');
 
     }
 

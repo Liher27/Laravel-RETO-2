@@ -1,12 +1,19 @@
 @extends('layouts.app')
 @section('content')
-<ul>
-
-    <li>
-      <p>ID de modelo {{$subject->id}} </p>
-      <p>ID de curso {{$subject->course_id}}</p>   
-      <p>Nombre de modelo {{$subject->subject_name}}</p>
-      <p>Hora de modelo {{$subject->subject_hours}}</p>
-    </li>
-</ul>
+<div class="d-flex justify-content-end">
+                <div class="card-body">
+                    @php
+                        $headers = ['ID', 'Name', 'Registration', 'Año escolar',];
+                    @endphp
+                    <x-table :headers="$headers">
+                        <tbody>
+                        <tr>
+                            <td>{{ $subject->id}}</td>
+                            <td>{{ $subject->course_id}}</td>
+                            <td>{{ $subject->subject_name }}</td>
+                            <td>{{ $subject->subject_hours }}</td>
+                           
+                        </tr>
+                </tbody>
+            </x-table>
 @endsection
