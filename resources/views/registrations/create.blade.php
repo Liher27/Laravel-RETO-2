@@ -15,6 +15,7 @@
     <div class="form-group mb-3">
       <label for="texto" class="form-label">FECHA_MATRICULACION</label>
       <input type="text" class="form-control" id="registration_date" name="registration_date" required>
+      <a></a>
     </input>
     </div>
     <div class="form-group mb-3">

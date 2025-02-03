@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Registration;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
@@ -16,6 +15,7 @@ class RegistrationController extends Controller
     {
         $userRoles = Auth::user()->roles->pluck('id')->toArray();  
         $registrations = Registration::orderBy('id')->cursorPaginate(env('PAGINATION_COUNT'));
+        
         return view('registrations.index', [
             'registrations' =>$registrations,
             'userRoles' => $userRoles
@@ -47,9 +47,9 @@ class RegistrationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Registration $registration)
+    public function show(Registration $registrations)
     {
-        return view('registrations.show',['registration'=>$registration]);
+        return view('registrations.show',['registrations'=>$registrations]);
     }
 
     /**

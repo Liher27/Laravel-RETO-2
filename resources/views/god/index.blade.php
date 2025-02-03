@@ -1,5 +1,2 @@
-@extends('layouts.app')
-
+@extends(request()->query('layout', 'layouts.admin')) 
 @section('content')
-<p>i m a god</p>
-@endsection

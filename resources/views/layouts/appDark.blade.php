@@ -24,7 +24,7 @@
             left: 0;
             z-index: 1000;
             width: 250px;
-            background: linear-gradient(180deg, #3cb4e5, #3cb4e5);
+            background: linear-gradient(180deg, #211261, #211261);
             color: #fff;
             padding: 1rem 0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@
         }
 
         .navbar:hover {
-            background: linear-gradient(180deg, rgba(60, 181, 229, 0.6), rgba(60, 181, 229, 0.6));
+            background: linear-gradient(180deg, #211261, #211261);
         }
 
         .navbar-nav .nav-link {
@@ -119,9 +119,10 @@
     </style>
 </head>
 
-<body style="background-color:rgb(245, 245, 245);">
+<body style="background-color:rgba(0, 0, 0, 0);">
 
     <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
+        <!-- Toggler button for mobile -->
         <button style='margin: 10px 0' ; class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="{{ __('Toggle navigation') }}">
@@ -131,7 +132,6 @@
                     style="width: 175px; height: auto;">
             </a>
         </button>
-       
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
@@ -142,14 +142,14 @@
                         </li>
                     @endif
                 @else
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('subjects.index') }}"><u>{{ __('Asignatura') }}</u></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('courses.index') }}"><u>{{ __('Ciclos') }}</u></a>
+                        <a class="nav-link" href="{{ route('courses.index') }}"><u>{{ __('Ciclos    ') }}</u></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('users.index') }}"><u>{{ __('Usuarios') }}</u></a>
@@ -172,16 +172,16 @@
                         </div>
                     </li>
                     <li>
-                    <a href="{{ url()->current() }}?layout=layouts.app" class="bi bi-brightness-high-fill fs-3"></a>
-                    <a href="{{ url()->current() }}?layout=layouts.appDark" class="bi bi-moon fs-3"></a>
+                        <a href="{{ url()->current() }}?layout=layouts.app" class="bi bi-brightness-high-fill fs-3"></a>
+                        <a href="{{ url()->current() }}?layout=layouts.appDark" class="bi bi-moon fs-3"></a>
                     </li>
-                    
                     <a>
                         <select class="form-select" aria-label="Small select example" style="margin: auto;">
                             <option selected>Castellano</option>
                             <option value="1">Euskera</option>
                         </select>
                     </a>
+
                 @endguest
             </ul>
         </div>
@@ -189,8 +189,7 @@
 
     <div class="main-container">
         <div id="app"></div>
-        <div class="form-check form-switch" style=" display flex-direction: auto;">
-        </div>
+
         <main class="py-4">
             @yield('content')
         </main>

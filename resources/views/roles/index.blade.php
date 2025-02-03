@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends(request()->query('layout', 'layouts.app')) 
 @section('content')
 <div class="container">
     <div class="card mt-5">
