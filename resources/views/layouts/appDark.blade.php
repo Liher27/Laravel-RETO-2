@@ -119,7 +119,7 @@
     </style>
 </head>
 
-<body style="background-color:rgba(0, 0, 0, 0);">
+<body style="background-color:#3b5998;">
 
     <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
         <!-- Toggler button for mobile -->
@@ -128,7 +128,7 @@
             aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
             <a href="{{ url('/') }}">
-                <img class="img-responsive" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo"
+                <img class="img-responsive" src="{{ asset('logoElorrieta-svg.svg') }}" alt="EEM Logo"
                     style="width: 175px; height: auto;">
             </a>
         </button>

@@ -68,7 +68,7 @@
 <body>
   <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
     <a href="{{ url('/') }}">
-      <img class="img-fluid mx-auto d-block" src="{{ asset('EEM-logo-color.svg') }}" alt="EEM Logo"
+      <img class="img-fluid mx-auto d-block" src="{{ asset('logoElorrieta-svg.svg') }}" alt="EEM Logo"
         style="width: 175px; height: auto;">
     </a>
 
@@ -85,7 +85,7 @@
       @csrf
     </form>
   </header>
-
+  @if(in_array(1, $userRoles) || in_array(2, $userRoles)) 
   <div class="container-fluid">
     <div class="row">
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
