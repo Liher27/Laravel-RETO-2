@@ -73,10 +73,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function getRoleID()
-{
-    return $this->role_id;
-}
+
 
     public function getRoleIDByuser(){
 

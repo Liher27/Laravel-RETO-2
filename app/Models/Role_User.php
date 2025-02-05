@@ -26,4 +26,9 @@ class Role_User extends Model
     {
         return Role_UserFactory::new();
     }
+
+    public function getRoleID()
+    {
+        return $this->role_id;
+    }
 }
