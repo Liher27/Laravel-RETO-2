@@ -18,10 +18,10 @@
                 <tbody>
                 @foreach($user->roles as $role)
                     <tr>    
-                        <td>{{ $role->role_name}}</td>
+                        <td>{{$role->role_name}}</td>
                         <td>{{$role->id}}</td>
                         <td>
-                            <form action="{{ route('users.deleteRole',$user,$role) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('users.deleteRole', ['user' => $user->id, 'role' => $role->id]) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>

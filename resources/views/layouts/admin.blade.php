@@ -141,7 +141,7 @@
                   href="{{ route('registrations.index') }}">{{ __('Nº de alumnos totales matriculados') }}</a>
               </h1> @forelse($registrations as $registration)
           <tr>
-          <td>{{ $count }}</td>
+          <td>{{ $registrations->count() }}</td>
           </tr>
         @empty
         <tr>

@@ -110,14 +110,19 @@ class UserController extends Controller
 
     }
 
-    public function deleteRole(Request $request,User $user){
-
-        $role = Role::find($request->role_id);
-
-        $user->roles()->detach($role);
+    public function deleteRole(Request $request, User $user, Role $role) {
+        
+       
+            $user->roles()->detach($role->id);
+    
         return redirect()->route('users.index');
-
     }
+
+
+    
+
+
+
 
     public function addRole(Request $request, User $user){
         if ($user->roles()->count() >= 2) { 
@@ -134,7 +139,7 @@ class UserController extends Controller
                     } elseif ($currentUserRoleId == 2) {
                         if ($role->id != 1) {
                             if ($user->roles()->where('id', 1)->exists()) {
-                                echo '<p>Error: No puedes asignar roles a usuarios del grupo 1.</p>';
+                                echo '<p>Error: No puedes asignar roles a usuarios god.</p>';
                             } else {
                                 $user->roles()->attach($role);
                             }

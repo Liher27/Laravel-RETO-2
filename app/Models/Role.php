@@ -17,6 +17,16 @@ class Role extends Model
 
     public $timestamps = false;
 
+    protected static function booted()
+    {
+        static::deleting(function ($role) {
+           
+            $role->users()->each(function ($user) {
+                $user->delete(); 
+            });
+        });
+    }
+
 }
 
 

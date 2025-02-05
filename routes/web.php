@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
    Route::post('/users/{user}/addRole','App\Http\Controllers\UserController@addRole')->name('users.addRole');
-   Route::delete('/users/{user}/deleteRole','App\Http\Controllers\UserController@deleteRole')->name('users.deleteRole');
+   Route::delete('users/{user}/delete-role/{role}', [UserController::class, 'deleteRole'])->name('users.deleteRole');
    Route::get('/users/{user}/delete','App\Http\Controllers\UserController@delete')->name('users.delete');
    Route::get('/users/{user}/add','App\Http\Controllers\UserController@add')->name('users.add');
 

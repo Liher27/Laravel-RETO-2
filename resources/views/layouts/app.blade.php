@@ -142,18 +142,20 @@
                         </li>
                     @endif
                 @else
-                <li class="nav-item">
-                        <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
-                    </li>
+              
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('subjects.index') }}"><u>{{ __('Asignatura') }}</u></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('courses.index') }}"><u>{{ __('Ciclos') }}</u></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.index') }}"><u>{{ __('Usuarios') }}</u></a>
-                    </li>
+                            <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('subjects.index') }}"><u>{{ __('Asignatura') }}</u></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('courses.index') }}"><u>{{ __('Ciclos') }}</u></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.index') }}"><u>{{ __('Usuarios') }}</u></a>
+                        </li>
+               
 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

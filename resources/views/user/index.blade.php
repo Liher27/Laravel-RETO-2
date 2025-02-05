@@ -27,10 +27,12 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->Telephone }}</td>
                             <td>
-                                @if ($user->id != 1)
-                                    <x-button style="info" route="{{ route('users.show', $user) }}" icon="bi bi-eye"
+                            <x-button style="info" route="{{ route('users.show', $user) }}" icon="bi bi-eye"
                                         size="fs-4">
                                     </x-button>
+                            @if(in_array(1, $userRoles) || in_array(2, $userRoles))
+                                @if ($user->id != 1)
+                                   
                                     <x-button style="success" route="{{ route('users.edit', $user) }}" icon="bi bi-pen"
                                         size="fs-4">
                                     </x-button>
@@ -77,6 +79,7 @@
                                     @endif
                                 @endif
                             </td>
+                         @endif
                         </tr>
                     @empty
                         <tr>
