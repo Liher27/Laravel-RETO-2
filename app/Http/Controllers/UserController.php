@@ -118,12 +118,6 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
-
-    
-
-
-
-
     public function addRole(Request $request, User $user){
         if ($user->roles()->count() >= 2) { 
             echo '<p>No puedes tener más roles.</p>';

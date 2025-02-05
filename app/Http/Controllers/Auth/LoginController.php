@@ -26,23 +26,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-public function redirectTo()
-{
-    $user_roles = Auth::user()->roles->pluck('id')->toArray();
 
-    // Check the user's role and redirect accordingly
-    if (in_array(1, $user_roles)) {
-        return view ('god.index'); // Redirect to the god's settings page
-    } elseif (in_array(2, $user_roles)) {
-        return '/admin/settings'; // Redirect to the admin's settings page
-    } elseif (in_array(3, $user_roles)) {
-        return '/professor/settings'; // Redirect to the professor's settings page
+    
+    public function redirectTo(){
+       
+    return '/settings';
+
     }
-
-    // Default redirect (in case no roles are found)
-    return '/';
-}
-
 
     /**
      * Create a new controller instance.

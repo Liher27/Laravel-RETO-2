@@ -52,7 +52,7 @@ public function handle(Request $request)
     } elseif (in_array(3, $user_roles)) {
         return view('professor.index');
     } else {
-        return redirect('/');
+        return redirect('professor.index');
     }
 }
 
