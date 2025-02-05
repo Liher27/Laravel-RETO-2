@@ -253,7 +253,6 @@
                     </tr>
                 </tbody>
             </table>
-            <button name="verProfesores" type="button" href="{{route('/users')}}">Ver Todos Los Profesores</button>
         </div>
     </div>
 </div>
