@@ -22,13 +22,8 @@
                         <td>{{ $role->id }}</td>
                             <td>{{ $role->role_name }}</td>
                             <td>
-                            <x-button style="info" route="{{ route('courses.show', $role) }}" icon="bi bi-eye"
-                                        size="fs-4">
-                                    </x-button>
-                                    @if(in_array(1, $userRoles) || in_array(2, $userRoles))
-                                @if ($userRoles != 1)
-
-                                    
+                            @if(in_array(1, $userRoles) || in_array(2, $userRoles))
+                                @if($role->id != 1 && $role->id != 2 && $role->id != 3 && $role->id != 4)
                                     <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#deleteUserModal{{ $role->id }}">
                                         <i class="bi bi-trash3 fs-4"></i>
