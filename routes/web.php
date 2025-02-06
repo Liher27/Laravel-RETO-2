@@ -15,6 +15,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 Auth::routes();
 
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
 
