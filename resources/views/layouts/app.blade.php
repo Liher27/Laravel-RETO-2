@@ -35,8 +35,8 @@
         }
 
         body[data-bs-theme='dark'] .main-container {
-            background: linear-gradient(180deg, #121212, #121212);
-            color: #fff;
+            background:#212529;
+            color: #fff !important;
         }
 
         .navbar {

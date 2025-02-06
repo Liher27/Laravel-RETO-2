@@ -30,13 +30,13 @@
     }
 
     body[data-bs-theme='light'] .main-container {
-    background: #f8fafc;
-    color: #000 !important;
-}
+      background: #f8fafc;
+      color: #000 !important;
+    }
 
     body[data-bs-theme='dark'] .main-container {
-      background: linear-gradient(180deg, #121212, #121212);
-      color: #fff;
+      background: #212529;
+      color: #fff !important;
     }
 
     .navbar {
@@ -164,9 +164,9 @@
       </li>
     @endif
     @else
-    <li class="nav-item">
-                    <a class="nav-link" href="{{ route('roles.index') }}"><u>{{ __('Roles') }}</u> </a>
-                </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{{ route('roles.index') }}"><u>{{ __('Roles') }}</u> </a>
+      </li>
       <li class="nav-item">
       <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
       </li>
@@ -211,20 +211,20 @@
 <div class="main-container">
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-center align-items-center pt-3 pb-2 mb-3 border-bottom text-center">
-        <h1 class="h2">Panel administrador</h1>
+      <h1 class="h2">Panel administrador</h1>
     </div>
-</main>
+  </main>
 
-    <div class="card-body">
-      @php
+  <div class="card-body">
+    @php
     $headers = ['Numero de alumnos matriculados'];
   @endphp
-      <div id="app"></div>
-      <div class="form-check form-switch" style=" display flex-direction: auto;">
-      </div>
+    <div id="app"></div>
+    <div class="form-check form-switch" style=" display flex-direction: auto;">
+    </div>
 
-      <main class="py-4">
-        @yield('content')
-        @include('layouts.theme-changer')
+    <main class="py-4">
+      @yield('content')
+      @include('layouts.theme-changer')
 
 </html>
