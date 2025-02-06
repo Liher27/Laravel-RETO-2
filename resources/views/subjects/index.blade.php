@@ -1,9 +1,6 @@
 @extends(request()->query('layout', 'layouts.app')) 
 @section('content')
 <div class="container">
-    @if(Auth::user()->getRoleID() == 1 || Auth::user()->getRoleID() == 2)
-        <a href="{{ route('subjects.create') }}" class="btn btn-sm btn-primary">Crear Asignaturas</a>
-    @endif
     <div class="container">
         <div class="card mt-5">
         <h3 class="card-header p-3">Usuarios</h3>   
