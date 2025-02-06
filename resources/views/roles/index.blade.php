@@ -4,41 +4,72 @@
     <div class="card mt-5">
         <h3 class="card-header p-3">Roles</h3>
         @if(in_array(1, $userRoles) || in_array(2, $userRoles))
-            <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary">Crear Role</a>
-        @endif
+                <div class="d-flex justify-content-end">
+                    <x-button route="{{ route('roles.create') }}" icon="bi bi-person-fill-add" size="fs-3">
+                        Crear Rol
+                    </x-button>
+                </div>
+            @endif
         <div class="card-body">
-            <table class="table table-bordered data-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Rol name</th>
-                    </tr>
-                </thead>
+            @php
+                $headers = ['ID', 'Nombre del rol'];
+            @endphp
+
+            <x-table :headers="$headers">
                 <tbody>
-                    @forelse($roles as $role)
+                    @forelse ($roles as $role)
                         <tr>
-                            <td>{{ $role->id }}</td>
+                        <td>{{ $role->id }}</td>
                             <td>{{ $role->role_name }}</td>
-                            @if(in_array(1, $userRoles) || in_array(2, $userRoles))
-                                <td>
-                                    @if($role->id != 1 && $role->id != 2 && $role->id != 3 && $role->id != 4)
-                                        <form action="{{ route('roles.destroy', $role) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-sm btn-danger" type="submit"
-                                                onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
-                                    @endif
-                            @endif
+                            <td>
+                            <x-button style="info" route="{{ route('courses.show', $role) }}" icon="bi bi-eye"
+                                        size="fs-4">
+                                    </x-button>
+                                    @if(in_array(1, $userRoles) || in_array(2, $userRoles))
+                                @if ($userRoles != 1)
+
+                                    
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteUserModal{{ $role->id }}">
+                                        <i class="bi bi-trash3 fs-4"></i>
+                                    </button>
+
+                                    <div class="modal fade" id="deleteUserModal{{ $role->id }}" tabindex="-1"
+                                        aria-labelledby="deleteUserModalLabel{{ $role->id }}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteUserModalLabel{{ $role->id }}">
+                                                        Confirmación
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ¿Estás seguro de que deseas eliminar a <strong>{{ $role->name }}</strong>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Cancelar</button>
+                                                    <form action="{{ route('roles.destroy', $role->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            </td>
+                        @endif
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3">There are no roles.</td>
+                            <td colspan="5">There are no users.</td>
                         </tr>
                     @endforelse
                 </tbody>
-            </table>
+            </x-table>
         </div>
-    </div>
-</div>
 @endsection

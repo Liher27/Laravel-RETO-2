@@ -164,7 +164,9 @@
       </li>
     @endif
     @else
-
+    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('roles.index') }}"><u>{{ __('Roles') }}</u> </a>
+                </li>
       <li class="nav-item">
       <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
       </li>

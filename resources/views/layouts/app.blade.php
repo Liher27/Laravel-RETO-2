@@ -169,6 +169,9 @@
                     <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('roles.index') }}"><u>{{ __('Roles') }}</u> </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('subjects.index') }}"><u>{{ __('Asignatura') }}</u></a>
                 </li>
                 <li class="nav-item">

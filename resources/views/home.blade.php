@@ -1,6 +1,6 @@
 @extends(request()->query('layout', 'layouts.app')) 
 @section('content')
-    Soy estudiante
+    Esto es la home, donde los estudiantes podran ver sus cosas 
     <!--
     TODO
     -->
