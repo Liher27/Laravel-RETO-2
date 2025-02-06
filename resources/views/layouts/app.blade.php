@@ -180,6 +180,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('users.index') }}"><u>{{ __('Usuarios') }}</u></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('roles.index') }}"><u>{{ __('Role') }}</u> </a>
+                 </li>
 
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
