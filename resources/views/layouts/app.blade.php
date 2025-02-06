@@ -35,8 +35,8 @@
         }
 
         body[data-bs-theme='dark'] .main-container {
-            background: linear-gradient(180deg, #121212, #121212);
-            color: #fff;
+            background:#212529;
+            color: #fff !important;
         }
 
         .navbar {
@@ -167,6 +167,9 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('registrations.index') }}"><u>{{ __('Matriculas') }}</u> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('roles.index') }}"><u>{{ __('Roles') }}</u> </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('subjects.index') }}"><u>{{ __('Asignatura') }}</u></a>

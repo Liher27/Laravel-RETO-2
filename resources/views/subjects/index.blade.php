@@ -4,7 +4,6 @@
     <div class="container">
         <div class="card mt-5">
         <h3 class="card-header p-3">Usuarios</h3>   
-        <h3 class="card-header p-3">
             @if(in_array(1, $userRoles) || in_array(2, $userRoles))
                 <div class="d-flex justify-content-end">
                     <x-button route="{{ route('subjects.create') }}" icon="bi bi-person-fill-add" size="fs-3">

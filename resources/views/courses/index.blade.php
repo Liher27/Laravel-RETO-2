@@ -1,7 +1,8 @@
 @extends(request()->query('layout', 'layouts.app')) 
 @section('content')
 <div class="container">
-            <h3 class="card-header p-3">
+        <div class="card mt-5">
+        <h3 class="card-header p-3">Cursos</h3>   
             @if(in_array(1, $userRoles) || in_array(2, $userRoles))
                 <div class="d-flex justify-content-end">
                     <x-button route="{{ route('courses.create') }}" icon="bi bi-person-fill-add" size="fs-3">
